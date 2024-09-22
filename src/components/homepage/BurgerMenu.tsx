@@ -4,6 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { X, AlignJustify } from "lucide-react";
 
+const menuItems = [
+    { href: '/all-products', label: 'All products' },
+    { href: '/about', label: 'About us' },
+    { href: '/faq', label: 'FAQ' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/contact', label: 'Contact' },
+]
+
 export default function Menu() {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -11,7 +19,7 @@ export default function Menu() {
 
     return (
         <div className="flex w-full justify-between">
-            <div className="flex items-center gap-4 text-xl font-biotif font-bold z-50">
+            <div className="flex items-center gap-4 text-xl font-bold z-50">
                 <Link href="/">a17</Link>
             </div>
             <motion.button
@@ -34,22 +42,15 @@ export default function Menu() {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                     >
                         <motion.div
-                            className="flex flex-col gap-3 pb-3 pt-24 px-4 w-full font-biotif font-normal text-lg text-[#4a4a4a]"
+                            className="flex flex-col gap-4 pt-24 px-4 w-full font-normal text-lg text-[#4a4a4a]"
                         >
-                            {[
-                                { href: "/all-products", text: "All products" },
-                                { href: "/about-us", text: "About us" },
-                                { href: "/faq", text: "FAQ" },
-                                { href: "/blog", text: "Blog" },
-                                { href: "/docs", text: "Docs" },
-                                { href: "/contact", text: "Contact" },
-                            ].map((link, index, array) => (
-                                <div key={link.href} className="relative">
+                            {menuItems.map((items, index, array) => (
+                                <div key={items.href} className="relative py-1">
                                     <Link
-                                        href={link.href}
+                                        href={items.href}
                                         className="block p-3 transition-colors duration-200 w-fit"
                                     >
-                                        {link.text}
+                                        {items.label}
                                     </Link>
                                     {index < array.length - 1 && (
                                         <div className="absolute bottom-0 left-3 right-3 h-px bg-gray-200" />
