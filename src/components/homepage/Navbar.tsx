@@ -25,7 +25,7 @@ export default function Navbar() {
         >
             <div className="flex w-full justify-between">
                 <div className="w-full justify-between hidden md:flex">
-                    <div className="flex items-center gap-4 text-2xl font-bold">
+                    <div className="flex items-center gap-4 text-2xl text-black font-bold">
                         <Link href="/">a17</Link>
                     </div>
                     <div className="items-center gap-12 font-normal text-lg text-[#4a4a4a] hidden md:flex">

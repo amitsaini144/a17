@@ -19,7 +19,7 @@ export default function Menu() {
 
     return (
         <div className="flex w-full justify-between">
-            <div className="flex items-center gap-4 text-2xl font-bold z-50">
+            <div className="flex items-center gap-4 text-2xl text-black font-bold z-50">
                 <Link href="/">a17</Link>
             </div>
             <motion.button
@@ -27,9 +27,9 @@ export default function Menu() {
                 className="md:hidden z-50"
             >
                 {isOpen ? (
-                    <X size={32} />
+                    <X size={32} color="black" />
                 ) : (
-                    <AlignJustify size={32} />
+                    <AlignJustify size={32} color="black" />
                 )}
             </motion.button>
             <AnimatePresence>
