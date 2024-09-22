@@ -19,7 +19,7 @@ export default function Menu() {
 
     return (
         <div className="flex w-full justify-between">
-            <div className="flex items-center gap-4 text-xl font-bold z-50">
+            <div className="flex items-center gap-4 text-2xl font-bold z-50">
                 <Link href="/">a17</Link>
             </div>
             <motion.button

@@ -12,6 +12,13 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        'md': '810px',
+        'xl': '1200px',
+      },
+      fontFamily: {
+        satoshi: ['var(--font-satoshi)'],
+      },
     },
   },
   plugins: [],
