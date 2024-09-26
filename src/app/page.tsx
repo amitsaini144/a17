@@ -4,6 +4,7 @@ import HeroSection from "@/components/homepage/HeroSection";
 import Navbar from "@/components/homepage/Navbar";
 import ArticlesSection from "@/components/homepage/ArticlesSection";
 import SubscribeCard from "@/components/homepage/SubscribeCard";
+import Footer from "@/components/homepage/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CategorySection />
       <ArticlesSection />
       <SubscribeCard />
+      <Footer />
     </div>
   );
 }
