@@ -21,7 +21,7 @@ export default function Displays() {
                 height={300}
                 quality={90}
                 priority
-                className="object-contain mix-blend-multiply w-full md:w-1/2 max-h-[300px]" />
+                className="object-contain mix-blend-multiply w-full md:w-1/2 max-h-[270px] md:max-h-[300px]" />
         </div>
     )
 }
