@@ -9,7 +9,7 @@ const products = [
 export default function Carousel() {
     return (
         <div className="relative w-full">
-            <div className="flex gap-6 overflow-x-auto scrollbar-hide px-4 md:px-6 xl:px-10 pt-8 md:pt-16 md:pb-14">
+            <div className="flex gap-6 overflow-x-auto scrollbar-hide px-4 md:px-6 xl:px-10 py-10 md:pb-14">
                 {products.map((product) => (
                     <div className="flex-shrink-0" key={product.id}>
                         <ProductCard product={product} />
