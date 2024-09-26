@@ -14,8 +14,14 @@ export default function Displays() {
                     </button>
                 </div>
             </div>
-
-            <Image src="/macbook.png" alt="monitor" width={300} height={300} quality={90} priority className="object-contain mix-blend-multiply w-full md:w-1/2 max-h-[300px]" />
+            <Image
+                src="/macbook.png"
+                alt="monitor"
+                width={300}
+                height={300}
+                quality={90}
+                priority
+                className="object-contain mix-blend-multiply w-full md:w-1/2 max-h-[300px]" />
         </div>
     )
 }

@@ -7,7 +7,7 @@ export default function CategorySection() {
         <div className="w-full px-4 md:px-6 xl:px-10 py-16 bg-white">
             <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-2 text-black">
-                    <h1 className="text-4xl xl:text-[40px] font-medium">Browse by categories</h1>
+                    <h2 className="text-4xl xl:text-[40px] font-medium">Browse by categories</h2>
                     <p className=" text-[18px] xl:text-xl">Explore our diverse range of categories tailored to <br className="hidden md:block" /> meet your specific needs and interests.</p>
                 </div>
 

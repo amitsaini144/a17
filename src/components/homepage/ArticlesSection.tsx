@@ -1,0 +1,31 @@
+import ArticleCard from "./ArticleCard"
+
+const articles = [
+    { id: 1, label: 'The Future of Wearable Tech: Trends and Innovations to Watch', href: '/', image: '/VR.png', },
+    { id: 2, label: 'The Rise of Smart Home Devices: Transforming the Way We Live', href: '/', image: '/pc.png', },
+    { id: 3, label: 'Gaming Gadgets: Revolutionizing Entertainment and Beyond', href: '/', image: '/typing.png', },
+]
+export default function ArticlesSection() {
+    return (
+        <div className="w-full px-4 md:px-6 xl:px-10 py-16 bg-white">
+            <div className="flex flex-col gap-10 justify-center">
+                <div className="flex md:flex-row flex-col justify-between gap-y-6">
+                    <h2 className="text-4xl xl:text-[40px] font-medium">Our articles and news</h2>
+                    <div className="xl:flex-shrink-0 w-fit">
+                        <button className="border border-black px-8 py-4 rounded-full text-lg">
+                            Check all
+                        </button>
+                    </div>
+                </div>
+
+                <div className="flex gap-6 overflow-x-auto justify-around scrollbar-hide relative">
+                    {articles.map((article) => (
+                        <div className="flex-shrink-0" key={article.id}>
+                            <ArticleCard article={article} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
