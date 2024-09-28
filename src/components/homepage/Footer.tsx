@@ -11,7 +11,7 @@ export default function Footer() {
                         <p className="text-[18px]">Selling premium products, designed<br /> to elevate your everyday experience</p>
                         <hr className="block md:hidden xl:block" />
                     </div>
-                    <div className="flex gap-4 w-fit items-end">
+                    <div className="flex gap-4 w-fit items-end text-black">
                         <Link href="/">Home</Link>
                         <Link href="/">About</Link>
                         <Link href="/">Blog</Link>
@@ -19,21 +19,24 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row justify-around">
-                    <div className="flex gap-20 p-10 pr-20">
-                        <div className="flex flex-col gap-2">
-                            <p>Pages</p>
-                            <Link href="/">Home</Link>
-                            <Link href="/">About</Link>
-                            <Link href="/">Blog</Link>
-                            <Link href="/">Shop</Link>
-
+                    <div className="flex gap-20 p-10 pr-20 text-[#4a4a4a]">
+                        <div className="flex flex-col gap-6">
+                            <p className="text-[18px] font-medium">Pages</p>
+                            <div className="flex flex-col gap-4">
+                                <Link href="/">Home</Link>
+                                <Link href="/">Shop</Link>
+                                <Link href="/">About</Link>
+                                <Link href="/">Blog</Link>
+                            </div>
                         </div>
-                        <div className="flex flex-col gap-2">
-                            <p>Support</p>
-                            <Link href="/">FAQ</Link>
-                            <Link href="/">Help</Link>
-                            <Link href="/">Contact</Link>
-                            <Link href="/">404</Link>
+                        <div className="flex flex-col justify-between">
+                            <p className="text-[18px] font-medium">Support</p>
+                            <div className="flex flex-col gap-4">
+                                <Link href="/">FAQ</Link>
+                                <Link href="/">Contact</Link>
+                                <Link href="/">Product</Link>
+                                <Link href="/">404</Link>
+                            </div>
                         </div>
                     </div>
                     <div>
