@@ -53,7 +53,14 @@ export default function Footer() {
                         </div>
                     </div>
                     <div>
-                        <Image src="/map.png" alt="logo" width={400} height={100} quality={90} priority className="object-cover h-[211px] md:h-[227px] xl:h-[280px] rounded-2xl" />
+                        <Image
+                            src="/map.png"
+                            alt="logo"
+                            width={419}
+                            height={100}
+                            quality={90}
+                            priority
+                            className="object-cover h-[211px] md:h-[227px] xl:h-[280px] rounded-2xl" />
                     </div>
                 </div>
             </div>

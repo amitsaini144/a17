@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { X, AlignJustify } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -13,15 +13,19 @@ const menuItems = [
     { href: '/contact', label: 'Contact' },
 ]
 
-export default function Menu() {
+export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetStateAction<boolean>> }) {
     const [isOpen, setIsOpen] = useState(false)
     const pathname = usePathname()
 
-    const toggle = () => setIsOpen(!isOpen)
+    const toggle = () => {
+        setMenuOpen(!isOpen)
+        setIsOpen(!isOpen)
+    }
 
     useEffect(() => {
         setIsOpen(false)
-    }, [pathname])
+        setMenuOpen(false)
+    }, [pathname, setMenuOpen])
 
     return (
         <div className="flex w-full justify-between">

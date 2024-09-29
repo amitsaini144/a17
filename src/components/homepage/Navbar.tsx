@@ -1,8 +1,8 @@
 "use client"
 import Link from "next/link"
-import { useInView, motion } from "framer-motion"
-import { useRef } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import BurgerMenu from "./BurgerMenu";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
     { href: '/shop', label: 'All products' },
@@ -13,15 +13,36 @@ const navItems = [
 ]
 
 export default function Navbar() {
-    const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+    const [hidden, setHidden] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
+    const { scrollY } = useScroll()
+    const lastScrollY = useRef(0)
+
+    useMotionValueEvent(scrollY, "change", (latest: number) => {
+        if (menuOpen) return
+        const direction = latest - lastScrollY.current > 0 ? "down" : "up"
+
+        if (direction === "down" && !hidden) setHidden(true)
+        if (direction === "up" && hidden) setHidden(false)
+
+        lastScrollY.current = latest
+    })
+
+    useEffect(() => {
+        setHidden(false)
+    }, [])
+
+    const variants = {
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+    }
 
     return (
         <motion.nav
-            ref={containerRef}
-            animate={isInView ? { y: 0 } : { opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex px-8 py-8 w-full justify-center bg-white"
+            variants={variants}
+            animate={hidden ? "hidden" : "visible"}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className={`fixed top-0 left-0 right-0 z-50 flex px-8 py-8 w-full justify-center bg-white`}
         >
             <div className="flex w-full justify-between max-w-[1245px]">
                 <div className="w-full justify-between hidden md:flex">
@@ -38,7 +59,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="md:hidden w-full">
-                    <BurgerMenu />
+                    <BurgerMenu setMenuOpen={setMenuOpen} />
                 </div>
             </div>
         </motion.nav>
