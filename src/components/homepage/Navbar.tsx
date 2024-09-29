@@ -5,7 +5,7 @@ import { useRef } from "react";
 import BurgerMenu from "./BurgerMenu";
 
 const navItems = [
-    { href: '/all-products', label: 'All products' },
+    { href: '/shop', label: 'All products' },
     { href: '/about', label: 'About us' },
     { href: '/faq', label: 'FAQ' },
     { href: '/blog', label: 'Blog' },
@@ -21,9 +21,9 @@ export default function Navbar() {
             ref={containerRef}
             animate={isInView ? { y: 0 } : { opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex px-8 py-8 w-full"
+            className="flex px-8 py-8 w-full justify-center"
         >
-            <div className="flex w-full justify-between">
+            <div className="flex w-full justify-between max-w-[1245px]">
                 <div className="w-full justify-between hidden md:flex">
                     <div className="flex items-center gap-4 text-2xl text-black font-bold">
                         <Link href="/">a17</Link>

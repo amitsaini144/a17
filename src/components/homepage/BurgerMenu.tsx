@@ -5,7 +5,7 @@ import { useState } from "react";
 import { X, AlignJustify } from "lucide-react";
 
 const menuItems = [
-    { href: '/all-products', label: 'All products' },
+    { href: '/shop', label: 'All products' },
     { href: '/about', label: 'About us' },
     { href: '/faq', label: 'FAQ' },
     { href: '/blog', label: 'Blog' },
