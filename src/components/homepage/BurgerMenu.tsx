@@ -1,8 +1,9 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X, AlignJustify } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
     { href: '/shop', label: 'All products' },
@@ -13,13 +14,18 @@ const menuItems = [
 ]
 
 export default function Menu() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+    const pathname = usePathname()
 
     const toggle = () => setIsOpen(!isOpen)
 
+    useEffect(() => {
+        setIsOpen(false)
+    }, [pathname])
+
     return (
         <div className="flex w-full justify-between">
-            <div className="flex items-center gap-4 text-2xl text-black font-bold z-50">
+            <div className="flex item-center gap-4 text-2xl text-black font-bold z-50">
                 <Link href="/">a17</Link>
             </div>
             <motion.button
@@ -44,13 +50,13 @@ export default function Menu() {
                         <motion.div
                             className="flex flex-col gap-4 pt-24 px-4 w-full font-normal text-lg text-[#4a4a4a]"
                         >
-                            {menuItems.map((items, index, array) => (
-                                <div key={items.href} className="relative py-1">
+                            {menuItems.map((item, index, array) => (
+                                <div key={item.href} className="relative py-1">
                                     <Link
-                                        href={items.href}
+                                        href={item.href}
                                         className="block p-3 transition-colors duration-200 w-fit"
                                     >
-                                        {items.label}
+                                        {item.label}
                                     </Link>
                                     {index < array.length - 1 && (
                                         <div className="absolute bottom-0 left-3 right-3 h-px bg-gray-200" />

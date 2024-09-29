@@ -21,7 +21,7 @@ export default function Navbar() {
             ref={containerRef}
             animate={isInView ? { y: 0 } : { opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex px-8 py-8 w-full justify-center"
+            className="flex px-8 py-8 w-full justify-center bg-white"
         >
             <div className="flex w-full justify-between max-w-[1245px]">
                 <div className="w-full justify-between hidden md:flex">
