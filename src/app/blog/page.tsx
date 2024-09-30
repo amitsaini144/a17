@@ -1,9 +1,9 @@
-import BlogCard from "@/components/faq/BlogCard"
+import BlogCard from "@/components/blogpage/BlogCard"
 
 const articles = [
-    { id: 1, label: 'The Future of Wearable Tech: Trends and Innovations to Watch', href: '/', image: '/VR.png', },
-    { id: 2, label: 'The Rise of Smart Home Devices: Transforming the Way We Live', href: '/', image: '/pc.png', },
-    { id: 3, label: 'Gaming Gadgets: Revolutionizing Entertainment and Beyond', href: '/', image: '/typing.png', },
+    { id: 1, label: 'The Future of Wearable Tech: Trends and Innovations to Watch', href: '/', image: '/VR.png', date: 'Apr 08, 2022' },
+    { id: 2, label: 'The Rise of Smart Home Devices: Transforming the Way We Live', href: '/', image: '/pc.png', date: 'Mar 15, 2022' },
+    { id: 3, label: 'Gaming Gadgets: Revolutionizing Entertainment and Beyond', href: '/', image: '/typing.png', date: 'Feb 15, 2022' },
 ]
 
 export default function Blog() {

@@ -10,6 +10,7 @@ interface ArticlesProps {
         label: string;
         href: string;
         image: string;
+        date: string;
     };
 }
 
@@ -27,8 +28,9 @@ export default function BlogCard({ article }: ArticlesProps) {
                         priority
                         className="rounded-3xl object-cover h-96 w-full xl:w-[400px]" />
                 </div>
-                <div className="flex">
+                <div className="flex flex-col gap-2">
                     <p className="text-black text-lg md:text-xl">{article.label}</p>
+                    <p className="text-[#999999] md:text-lg">{article.date}</p>
                 </div>
             </Link>
         </motion.div>
