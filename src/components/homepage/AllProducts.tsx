@@ -9,7 +9,7 @@ export default function AllProducts() {
                     <p className="text-sm md:text-base">Discover endless possibilities with our All Products category.<br className="block md:hidden xl:block" /> Shop now for everything you need in one convenient place.</p>
                 </div>
                 <div>
-                    <button className="border px-9 py-4 rounded-full text-base text-black bg-white hover:bg-gray-100 transition-colors">
+                    <button className="border px-9 py-4 rounded-full text-black bg-white hover:bg-gray-100 transition-colors">
                         Browse all products
                     </button>
                 </div>

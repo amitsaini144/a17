@@ -16,7 +16,7 @@ export default function CardWithButton({ image, label }: CardWithButtonProps) {
                 priority
                 className="object-cover mix-blend-multiply overflow-hidden" />
             <div className="-mt-12 z-10 pb-8">
-                <button className="border px-9 py-4 rounded-full text-base text-black bg-white hover:bg-gray-100 transition-colors">
+                <button className="border px-9 py-4 rounded-full text-black bg-white hover:bg-gray-100 transition-colors">
                     {label}
                 </button>
             </div>

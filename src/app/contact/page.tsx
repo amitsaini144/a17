@@ -28,20 +28,20 @@ export default function Contact() {
                                 <p>Phone number</p>
                                 <p>+ 123 456 789</p>
                             </div>
-                            <p className="text-base md:text-lg text-[#4a4a4a]">Call our team directly. We will provide information, answer technical questions, or schedule an appointment.</p>
+                            <p className="md:text-lg text-[#4a4a4a]">Call our team directly. We will provide information, answer technical questions, or schedule an appointment.</p>
                         </div>
                         <div className="flex flex-col justify-between px-4 py-6 md:p-6 bg-[#f7f7f7] rounded-3xl h-[250px] xl:h-1/2">
                             <div className="flex flex-col gap-2 text-lg md:text-xl text-black">
                                 <p>E-mail</p>
                                 <p>example@gmail.com</p>
                             </div>
-                            <p className="text-base md:text-lg text-[#4a4a4a]">Use email to provide information about the project. We will respond as soon as possible, providing comprehensive support.</p>
+                            <p className="md:text-lg text-[#4a4a4a]">Use email to provide information about the project. We will respond as soon as possible, providing comprehensive support.</p>
                         </div>
                     </div>
                     <div className="flex flex-col px-4 py-6 md:p-6 bg-[#f7f7f7] rounded-3xl xl:w-2/3 gap-6">
                         <div className="flex flex-col gap-2">
                             <p className="text-lg md:text-xl text-black">Drop us a message</p>
-                            <p className="md:w-2/3 text-[#4a4a4a] text-base md:text-lg">We&apos;re always here to assist you at Etec. Our customer support team is dedicated to addressing your inquiries.</p>
+                            <p className="md:w-2/3 text-[#4a4a4a] md:text-lg">We&apos;re always here to assist you at Etec. Our customer support team is dedicated to addressing your inquiries.</p>
                         </div>
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                             <div className="flex flex-col md:flex-row w-full gap-3">

@@ -9,7 +9,7 @@ export default function Displays() {
                     <p className="text-sm md:text-base">Experience crystal-clear clarity and <br className="xl:hidden" /> vibrant visuals with our Displays.</p>
                 </div>
                 <div className="mt-4">
-                    <button className="border px-9 py-4 rounded-full text-base text-black bg-white hover:bg-gray-100 transition-colors">
+                    <button className="border px-9 py-4 rounded-full text-black bg-white hover:bg-gray-100 transition-colors">
                         Check Displays
                     </button>
                 </div>
