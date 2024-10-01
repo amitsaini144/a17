@@ -30,7 +30,7 @@ export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetS
     return (
         <div className="flex w-full justify-between">
             <div className="flex item-center gap-4 text-2xl text-black font-bold z-50">
-                <Link href="/">a17</Link>
+                <Link href="/">A17</Link>
             </div>
             <motion.button
                 onClick={toggle}

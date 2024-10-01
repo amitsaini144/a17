@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="flex flex-col xl:flex-row gap-10 md:gap-0 bg-[#f7f7f7] rounded-3xl justify-between p-4">
                 <div className="md:p-4 md:pr-0 xl:p-10 flex flex-col md:flex-row xl:flex-col justify-between gap-4 h-fit">
                     <div className="flex flex-col gap-4 text-black">
-                        <h2 className="text-2xl font-semibold">a17</h2>
+                        <h2 className="text-2xl font-semibold">A17</h2>
                         <p className="text-[18px]">Selling premium products, designed<br /> to elevate your everyday experience</p>
                         <hr className="block md:hidden xl:block" />
                     </div>
@@ -17,10 +17,7 @@ export default function Footer() {
                             <Icons.gitHub className="h-5 w-5" />
                             <span className="sr-only">Facebook</span>
                         </Link>
-                        <Link href="/" className="bg-[#E6E6E6] rounded-full p-3">
-                            <Icons.instagram className="h-5 w-5" />
-                            <span className="sr-only">Instagram</span>
-                        </Link>
+                    
                         <Link href="https://www.linkedin.com/in/amitsaini144" className="bg-[#E6E6E6] rounded-full p-3" target="_blank" rel="noreferrer">
                             <Icons.linkedin className="h-5 w-5" />
                             <span className="sr-only">Linkedin</span>
