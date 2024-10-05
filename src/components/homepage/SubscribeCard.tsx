@@ -8,7 +8,7 @@ export default function SubscribeCard() {
                 </div>
 
                 <form className="flex flex-col md:flex-row gap-4 w-full md:w-[80%] xl:w-[50%]">
-                    <input type="email" placeholder="Your email address" className="p-4 rounded-full text-lg w-full" />
+                    <input type="email" placeholder="Your email address" className="text-black p-4 rounded-full text-lg w-full focus:outline-none" />
                     <input type="submit" value="Subscribe" className="px-8 py-4 bg-black text-white rounded-full text-lg w-full md:w-fit" />
                 </form>
             </div>

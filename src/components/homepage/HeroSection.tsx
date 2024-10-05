@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function HeroSection() {
     return (
@@ -11,11 +12,11 @@ export default function HeroSection() {
                         Elevate your daily routine with our meticulously <br className="hidden md:inline" /> selected premium goods and curated essentials.
                     </p>
                 </div>
-                <div className="xl:flex-shrink-0 w-fit">
+                <Link href="/shop" className="xl:flex-shrink-0 w-fit">
                     <button className="border border-black px-8 py-4 rounded-full text-lg">
                         Browse all products
                     </button>
-                </div>
+                </Link>
             </div>
         </div>
     )

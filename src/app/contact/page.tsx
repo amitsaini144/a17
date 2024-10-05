@@ -50,23 +50,22 @@ export default function Contact() {
                                     type="text"
                                     value={name}
                                     placeholder="Name"
-
                                     onChange={(e) => setName(e.target.value)}
-                                    className="p-4 rounded-full w-full focus:outline-none" />
+                                    className="p-4 rounded-full w-full focus:outline-none text-black" />
                                 <input
                                     required
                                     type="email"
                                     value={email}
                                     placeholder="Email"
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="p-4 rounded-3xl w-full focus:outline-none" />
+                                    className="p-4 rounded-3xl w-full focus:outline-none text-black" />
                             </div>
                             <textarea
                                 required
                                 value={message}
                                 placeholder="Message"
                                 onChange={(e) => setMessage(e.target.value)}
-                                className="p-4 w-full h-80 resize-none rounded-3xl focus:outline-none"></textarea>
+                                className="p-4 w-full h-80 resize-none rounded-3xl focus:outline-none text-black"></textarea>
                             <input type="submit" value="Send message" className="p-4 rounded-3xl w-full bg-black text-white cursor-pointer" />
                         </form>
                     </div>

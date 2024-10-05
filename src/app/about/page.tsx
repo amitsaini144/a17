@@ -49,7 +49,7 @@ export default function About() {
                         <div className="flex flex-col gap-6 text-center items-center justify-center h-fit md:w-1/2">
                             <h3 className="text-2xl md:text-[28px] xl:text-[32px] text-black">Premium Tech Selection</h3>
                             <p className="md:text-lg text-[#4a4a4a]">Our pursuit of excellence involves extensive exploration of top-tier factories globally, ensuring our tech lineup mirrors the standards upheld by renowned brands. We forge strong partnerships with these facilities, prioritizing factors like sustainability and ethical production practices.</p>
-                            <Link href='/shop' className="border border-black px-8 py-4 rounded-full md:text-lg w-fit">
+                            <Link href='/shop' className="border border-black px-8 py-4 rounded-full md:text-lg w-fit text-black">
                                 Check our store
                             </Link>
                         </div>
@@ -61,7 +61,7 @@ export default function About() {
                         <div className="flex flex-col gap-6 text-center items-center justify-center h-fit md:w-1/2">
                             <h3 className="text-2xl md:text-[28px] xl:text-[32px] text-black">Timeless Tech Solutions</h3>
                             <p className="md:text-lg text-[#4a4a4a]">At A17, we eschew passing trends in favor of enduring value and utility. Our commitment? To offer tech solutions that seamlessly integrate into your life, promising years of reliable performance and timeless appeal.</p>
-                            <Link href='/blog' className="border border-black px-8 py-4 rounded-full md:text-lg w-fit">
+                            <Link href='/blog' className="border border-black px-8 py-4 rounded-full md:text-lg w-fit text-black">
                                 Check our blog
                             </Link>
                         </div>

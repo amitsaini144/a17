@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function AllProducts() {
     return (
@@ -8,11 +9,11 @@ export default function AllProducts() {
                     <h2 className="text-xl md:text-2xl font-medium">All products</h2>
                     <p className="text-sm md:text-base">Discover endless possibilities with our All Products category.<br className="block md:hidden xl:block" /> Shop now for everything you need in one convenient place.</p>
                 </div>
-                <div>
+                <Link href="/shop">
                     <button className="border px-9 py-4 rounded-full text-black bg-white hover:bg-gray-100 transition-colors">
                         Browse all products
                     </button>
-                </div>
+                </Link>
             </div>
             <div className="overflow-hidden">
                 <Image src="/ultrawatch.png" alt="Smartwatch" width={612} height={360} quality={100} priority className="w-full" />
