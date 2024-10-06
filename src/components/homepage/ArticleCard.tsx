@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import {article } from "@/types/blog";
+import { article } from "@/types/blog";
 
 export default function ArticleCard({ label, href, image }: article) {
     return (

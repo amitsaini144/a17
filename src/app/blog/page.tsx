@@ -14,7 +14,7 @@ export default function Blog() {
                     <div className="flex flex-wrap justify-center items-center gap-6">
                         {articles.map((article) => (
                             <div className="" key={article.id}>
-                                <BlogCard article={article} />
+                                <BlogCard {...article} />
                             </div>
                         ))}
                     </div>
