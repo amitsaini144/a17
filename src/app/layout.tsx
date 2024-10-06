@@ -7,7 +7,7 @@ import SubscribeCard from "@/components/homepage/SubscribeCard";
 
 const satoshi = localFont({
   display: 'swap',
-  src: './fonts/satoshi.ttf',
+  src: '../../public/fonts/satoshi.ttf',
   variable: '--font-satoshi',
 });
 

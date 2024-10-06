@@ -1,13 +1,7 @@
 import React from "react";
+import { smallCard } from "@/types/about";
 
-interface Card {
-    id: number,
-    svg: React.FC<React.SVGProps<SVGSVGElement>>,
-    title: string,
-    description: string
-}
-
-export default function SmallCard({ card }: { card: Card }) {
+export default function SmallCard({ card }: { card: smallCard }) {
     return (
         <div className="flex md:flex-col xl:flex-row p-2 md:p-4 gap-2 md:w-1/3 items-center">
             <div className="flex items-center justify-center w-16 h-16 ">

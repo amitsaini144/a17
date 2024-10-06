@@ -4,14 +4,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { X, AlignJustify } from "lucide-react";
 import { usePathname } from "next/navigation";
-
-const menuItems = [
-    { href: '/shop', label: 'All products' },
-    { href: '/about', label: 'About us' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
-]
+import { navItems } from "@/data/homeData";
 
 export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetStateAction<boolean>> }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -54,7 +47,7 @@ export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetS
                         <motion.div
                             className="flex flex-col gap-4 pt-24 px-4 w-full font-normal text-lg text-[#4a4a4a]"
                         >
-                            {menuItems.map((item, index, array) => (
+                            {navItems.map((item, index, array) => (
                                 <div key={item.href} className="relative py-1">
                                     <Link
                                         href={item.href}

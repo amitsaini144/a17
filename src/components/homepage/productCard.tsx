@@ -3,25 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion"
+import { product } from "@/types/home";
 
-interface ProductCardProps {
-    product: {
-        id: number,
-        label: string,
-        href: string,
-        image: string,
-        price: string,
-    }
-}
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ label, href, image, price }: product) {
     return (
         <motion.div
             whileHover={{ scale: 1.02 }}
         >
-            <Link href="/" className="flex flex-col gap-4">
+            <Link href={href} className="flex flex-col gap-4">
                 <div className="relative rounded-3xl">
                     <Image
-                        src={product.image}
+                        src={image}
                         alt="Headphones x-28m"
                         width={400}
                         height={465}
@@ -30,8 +22,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                     <p className=" absolute top-5 left-5 border border-[#4a4a4a] text-[#4a4a4a] w-fit rounded-full px-3">Featured</p>
                 </div>
                 <div className="flex justify-between">
-                    <p className="text-black text-lg md:text-xl">{product.label}</p>
-                    <p className="text-[#7f7f7f] text-lg md:text-xl">USD {product.price}</p>
+                    <p className="text-black text-lg md:text-xl">{label}</p>
+                    <p className="text-[#7f7f7f] text-lg md:text-xl">USD {price}</p>
                 </div>
             </Link>
         </motion.div>

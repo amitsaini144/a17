@@ -1,16 +1,9 @@
 "use client"
 import Link from "next/link"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
+import { navItems } from "@/data/homeData";
 import BurgerMenu from "./BurgerMenu";
 import { useEffect, useRef, useState } from "react";
-
-const navItems = [
-    { href: '/shop', label: 'All products' },
-    { href: '/about', label: 'About us' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
-]
 
 export default function Navbar() {
     const [hidden, setHidden] = useState(false)

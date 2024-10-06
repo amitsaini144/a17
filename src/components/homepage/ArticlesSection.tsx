@@ -1,11 +1,7 @@
 import Link from "next/link"
+import { articles } from "@/data/blogData"
 import ArticleCard from "./ArticleCard"
 
-const articles = [
-    { id: 1, label: 'The Future of Wearable Tech: Trends and Innovations to Watch', href: '/', image: '/VR.png', },
-    { id: 2, label: 'The Rise of Smart Home Devices: Transforming the Way We Live', href: '/', image: '/pc.png', },
-    { id: 3, label: 'Gaming Gadgets: Revolutionizing Entertainment and Beyond', href: '/', image: '/typing.png', },
-]
 export default function ArticlesSection() {
     return (
         <div className="w-full px-4 md:px-6 xl:px-10 pt-16 pb-6 xl:pb-16 bg-white">
@@ -22,7 +18,7 @@ export default function ArticlesSection() {
                 <div className="flex gap-6 overflow-x-auto justify-around scrollbar-hide relative">
                     {articles.map((article) => (
                         <div className="flex-shrink-0" key={article.id}>
-                            <ArticleCard article={article} />
+                            <ArticleCard {...article} />
                         </div>
                     ))}
                 </div>

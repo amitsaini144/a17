@@ -1,9 +1,5 @@
 import Image from "next/image"
-
-interface CardWithButtonProps {
-    image: string;
-    label: string;
-}
+import { CardWithButtonProps } from "@/types/home";
 
 export default function CardWithButton({ image, label }: CardWithButtonProps) {
     return (

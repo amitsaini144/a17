@@ -1,20 +1,8 @@
 import Image from "next/image"
-import { TruckIcon, CreditCardIcon, Undo2Icon } from "lucide-react"
+import { smallCardInfo, largeCardInfo } from "@/data/aboutData";
 import SmallCard from "@/components/about/SmallCard"
 import LargeCard from "@/components/about/LargeCard"
 import Link from "next/link"
-
-const smallCardInfo = [
-    { id: 1, svg: TruckIcon, title: 'Free Shipping', description: '$24+ orders ship free' },
-    { id: 2, svg: CreditCardIcon, title: 'Secure Payments', description: 'Trusted payment options' },
-    { id: 3, svg: Undo2Icon, title: '45 Days Free Return', description: 'Easy, risk-free returns' },
-]
-
-const largeCardInfo = [
-    { id: 1, img: '/exclusive.png', title: 'Exclusive Range', description: 'Immerse yourself in our meticulously curated selection, backed by over 20 years of industry experience.' },
-    { id: 2, img: '/enduring.png', title: 'Enduring Innovation', description: 'Our products transcend fleeting trends, embodying timeless innovation that ensures they remain relevant and cutting-edge for years.' },
-    { id: 3, img: '/ethical.png', title: 'Ethical Sourcing', description: 'Shop with confidence knowing that our products are sourced from reputable factories worldwide, adhering to stringent compliance standards.' }
-]
 
 export default function About() {
     return (

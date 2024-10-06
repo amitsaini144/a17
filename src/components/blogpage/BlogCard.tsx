@@ -3,16 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-
-interface ArticlesProps {
-    article: {
-        id: number;
-        label: string;
-        href: string;
-        image: string;
-        date: string;
-    };
-}
+import { ArticlesProps } from "@/types/blog";
 
 export default function BlogCard({ article }: ArticlesProps) {
     return (
