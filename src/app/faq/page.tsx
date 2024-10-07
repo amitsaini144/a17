@@ -31,7 +31,6 @@ export default function Faq() {
                     <div className="flex flex-col gap-16 xl:w-[666px]">
                         <div className="flex flex-col gap-8">
                             <h2 className="text-2xl md:text-[32px] text-black">Shopping Information</h2>
-
                             <div className="flex flex-col gap-4">
                                 {shopFaq.map((faq) => (
                                     <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
@@ -40,7 +39,6 @@ export default function Faq() {
                         </div>
                         <div className="flex flex-col gap-8">
                             <h2 className="text-2xl md:text-[32px] text-black">Payment Information</h2>
-
                             <div className="flex flex-col gap-4">
                                 {paymentInfo.map((faq) => (
                                     <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
@@ -49,7 +47,6 @@ export default function Faq() {
                         </div>
                         <div className="flex flex-col gap-8">
                             <h2 className="text-2xl md:text-[32px] text-black">Order & returns</h2>
-
                             <div className="flex flex-col gap-4">
                                 {orderInfo.map((faq) => (
                                     <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />

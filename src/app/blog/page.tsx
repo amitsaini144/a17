@@ -11,7 +11,7 @@ export default function Blog() {
                         <p className="text-xl text-[#4a4a4a]">Stay informed with our bite-sized articles</p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center items-center gap-6">
+                    <div className="flex flex-wrap justify-center items-center gap-10 xl:gap-6">
                         {articles.map((article) => (
                             <div key={article.id}>
                                 <BlogCard {...article} />

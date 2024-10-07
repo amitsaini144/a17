@@ -3,6 +3,7 @@ import { articles } from "@/data/blogData"
 import Image from 'next/image'
 import Link from 'next/link'
 import BlogCard from './BlogCard'
+import { DotIcon } from 'lucide-react'
 
 function getOtherPostBySlug(slug: string) {
     return articles.filter(article => article.slug !== slug);
@@ -16,13 +17,15 @@ export default function BlogPost({ post, params }: { post: article, params: { sl
             <div className="w-full max-w-[1349px]">
                 <div className="w-full flex flex-col gap-12 px-4 md:px-6 xl:px-10 pt-32">
                     <div className="flex flex-col md:text-center md:justify-center gap-6">
-                        <div className="flex gap-4 w-full md:justify-center text-[12px] md:text-sm">
-                            <Link href="/blog" className="w-fit text-black">Home</Link>
-                            <Link href="/blog" className="text-black">Blog</Link>
+                        <div className="flex gap-1 w-full md:justify-center items-center text-[12px] md:text-sm">
+                            <Link href="/" className="w-fit text-[#7f7f7f]">Home</Link>
+                            <DotIcon className="w-4 h-4 text-[#bebebe]" />
+                            <Link href="/blog" className="text-[#7f7f7f]">Blog</Link>
+                            <DotIcon className="w-4 h-4 text-[#bebebe]" />
                             <span className="text-black">{post.label}</span>
                         </div>
                         <div className="flex flex-col gap-2 md:items-center">
-                            <h1 className="text-[40px] md:text-5xl xl:text-[64px] font-medium md:w-[80%] lg:w-[75%] xl:w-[65%] leading-tight md:leading-tight">{post.label}</h1>
+                            <h1 className="text-[40px] md:text-5xl xl:text-[64px] font-medium md:w-[80%] lg:w-[75%] xl:w-[65%] leading-tight md:leading-tight text-black">{post.label}</h1>
                             <p className="text-sm md:text-base text-[#4a4a4a]">{post.date}</p>
                         </div>
                     </div>
