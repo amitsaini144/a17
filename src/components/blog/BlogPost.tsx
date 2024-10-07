@@ -1,8 +1,16 @@
 import { article } from '@/types/blog'
+import { articles } from "@/data/blogData"
 import Image from 'next/image'
 import Link from 'next/link'
+import BlogCard from './BlogCard'
 
-export default function BlogPost({ post }: { post: article }) {
+function getOtherPostBySlug(slug: string) {
+    return articles.filter(article => article.slug !== slug);
+}
+
+export default function BlogPost({ post, params }: { post: article, params: { slug: string } }) {
+    const otherArticles = getOtherPostBySlug(params.slug)
+
     return (
         <div className="flex flex-col items-center w-full min-w-[320px]">
             <div className="w-full max-w-[1349px]">
@@ -19,7 +27,7 @@ export default function BlogPost({ post }: { post: article }) {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col px-4 md:px-10 pt-6 md:pt-10 pb-0 gap-6">
+                <div className="flex flex-col px-4 md:px-10 pt-6 md:pt-10 pb-16 gap-6">
                     <Image
                         src={post.image}
                         alt={post.label}
@@ -35,6 +43,18 @@ export default function BlogPost({ post }: { post: article }) {
                                 <div key={index} className="flex flex-col gap-4 text-black">
                                     {section.title && <h3 className="text-2xl md:text-[32px] font-semibold">{section.title}</h3>}
                                     <p className="text-lg">{section.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='flex flex-col px-4 md:px-10 pb-0 pt-6 md:pt-10 gap-6'>
+                    <div className='flex flex-col gap-10'>
+                        <h2 className='text-[40px] text-black font-medium leading-tight'>Check out other<br /> items from our blog</h2>
+                        <div className="flex flex-col md:flex-row justify-start items-center gap-4">
+                            {otherArticles.map((article) => (
+                                <div key={article.id}>
+                                    <BlogCard {...article} />
                                 </div>
                             ))}
                         </div>
