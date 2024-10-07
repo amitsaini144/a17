@@ -19,7 +19,7 @@ export default function BlogPost({ post }: { post: article }) {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col px-10 pt-10 pb-0 gap-6">
+                <div className="flex flex-col px-4 md:px-10 pt-6 md:pt-10 pb-0 gap-6">
                     <Image
                         src={post.image}
                         alt={post.label}
@@ -29,12 +29,12 @@ export default function BlogPost({ post }: { post: article }) {
                         priority
                         className="object-cover w-full h-[400px] md:h-[460px] xl:h-[670px] rounded-3xl"
                     />
-                    <div className="flex flex-col px-20 py-10 justify-start items-center bg-[#f7f7f7] rounded-3xl">
-                        <div className="flex flex-col gap-20 w-[80%] text-black">
+                    <div className="flex flex-col p-6 md:px-20 md:py-10 justify-start items-center bg-[#f7f7f7] rounded-3xl">
+                        <div className="flex flex-col gap-24 md:w-[80%] text-black">
                             {post.content.map((section, index) => (
                                 <div key={index} className="flex flex-col gap-4 text-black">
-                                    {section.title && <h3 className="text-[32px] font-medium">{section.title}</h3>}
-                                    <p className="text-xl">{section.text}</p>
+                                    {section.title && <h3 className="text-2xl md:text-[32px] font-semibold">{section.title}</h3>}
+                                    <p className="text-lg">{section.text}</p>
                                 </div>
                             ))}
                         </div>
