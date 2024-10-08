@@ -33,7 +33,10 @@ export default function Faq() {
                             <h2 className="text-2xl md:text-[32px] text-black">Shopping Information</h2>
                             <div className="flex flex-col gap-4">
                                 {shopFaq.map((faq) => (
-                                    <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+                                    <FaqItem 
+                                    key={faq.question} 
+                                    question={faq.question} 
+                                    answer={faq.answer} />
                                 ))}
                             </div>
                         </div>
@@ -41,7 +44,10 @@ export default function Faq() {
                             <h2 className="text-2xl md:text-[32px] text-black">Payment Information</h2>
                             <div className="flex flex-col gap-4">
                                 {paymentInfo.map((faq) => (
-                                    <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+                                    <FaqItem 
+                                    key={faq.question} 
+                                    question={faq.question} 
+                                    answer={faq.answer} />
                                 ))}
                             </div>
                         </div>
@@ -49,7 +55,10 @@ export default function Faq() {
                             <h2 className="text-2xl md:text-[32px] text-black">Order & returns</h2>
                             <div className="flex flex-col gap-4">
                                 {orderInfo.map((faq) => (
-                                    <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
+                                    <FaqItem 
+                                    key={faq.question} 
+                                    question={faq.question} 
+                                    answer={faq.answer} />
                                 ))}
                             </div>
                         </div>
