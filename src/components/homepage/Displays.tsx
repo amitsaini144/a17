@@ -1,4 +1,5 @@
 import Image from "next/image"
+import macbook from "../../../public/macbook.png"
 
 export default function Displays() {
     return (
@@ -15,12 +16,13 @@ export default function Displays() {
                 </div>
             </div>
             <Image
-                src="/macbook.png"
+                src={macbook}
                 alt="monitor"
                 width={300}
                 height={300}
                 quality={90}
                 priority
+                placeholder="blur"
                 className="object-contain mix-blend-multiply w-full md:w-1/2 max-h-[270px] md:max-h-[300px]" />
         </div>
     )

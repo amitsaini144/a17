@@ -1,6 +1,8 @@
 import AllProducts from "./AllProducts";
 import Displays from "./Displays";
 import CardWithButton from "./CardWithButton";
+import whiteHeadphone from "../../../public/whiteHeadphone.png" 
+import iphonepro from "../../../public/iphonepro.png"
 
 export default function CategorySection() {
     return (
@@ -16,8 +18,8 @@ export default function CategorySection() {
                     <div className="flex flex-col gap-6 justify-around">
                         <Displays />
                         <div className="grid md:grid-cols-2 gap-6 h-1/2 overflow-hidden">
-                            <CardWithButton image="/whiteHeadphone.png" label="Headphones" />
-                            <CardWithButton image="/iphonepro.png" label="Phones" />
+                            <CardWithButton image={whiteHeadphone} label="Headphones" />
+                            <CardWithButton image={iphonepro} label="Phones" />
                         </div>
                     </div>
                 </div>

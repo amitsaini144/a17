@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import ultrawatch from "../../../public/ultrawatch.png"
 
 export default function AllProducts() {
     return (
@@ -16,7 +17,15 @@ export default function AllProducts() {
                 </Link>
             </div>
             <div className="overflow-hidden">
-                <Image src="/ultrawatch.png" alt="Smartwatch" width={612} height={360} quality={100} priority className="w-full" />
+                <Image 
+                src={ultrawatch}
+                alt="Smartwatch" 
+                width={612} 
+                height={360} 
+                quality={100} 
+                priority
+                placeholder="blur"
+                className="w-full" />
             </div>
         </div>
     )

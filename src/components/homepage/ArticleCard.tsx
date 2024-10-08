@@ -12,11 +12,12 @@ export default function ArticleCard({ label, slug, image }: article) {
                 <div className="rounded-3xl">
                     <Image
                         src={image}
-                        alt="Ariticle image"
+                        alt={label}
                         width={400}
                         height={400}
                         quality={90}
                         priority
+                        placeholder="blur"
                         className="rounded-3xl object-cover h-96" />
                 </div>
                 <div className="flex">

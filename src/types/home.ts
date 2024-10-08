@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 export interface CardWithButtonProps {
-    image: string;
+    image: StaticImageData;
     label: string;
 }
 export interface navbarItem {
@@ -11,6 +13,6 @@ export interface product {
     id: number,
     label: string,
     href: string,
-    image: string,
+    image: StaticImageData,
     price: string,
 }

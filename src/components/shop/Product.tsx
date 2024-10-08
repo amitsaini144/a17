@@ -5,22 +5,22 @@ import Link from "next/link";
 import { motion } from "framer-motion"
 import { product } from "@/types/home";
 
-export default function ProductCard({ label, href, image, price }: product) {
+export default function Product({ label, href, image, price }: product) {
     return (
         <motion.div
             whileHover={{ scale: 1.02 }}
         >
             <Link href={href} className="flex flex-col gap-4">
-                <div className="relative rounded-3xl">
+                <div className="rounded-3xl w-full">
                     <Image
                         src={image}
-                        alt={label}
-                        width={400}
-                        height={465}
+                        alt="Headphones x-28m"
+                        width={800}
+                        height={800}
                         quality={90}
+                        priority 
                         placeholder="blur"
-                        priority className="rounded-3xl w-[300px] md:w-[400px]" />
-                    <p className="absolute top-5 left-5 border border-[#4a4a4a] text-[#4a4a4a] w-fit rounded-full px-3">Featured</p>
+                        className="rounded-3xl object-cover w-full" />
                 </div>
                 <div className="flex justify-between">
                     <p className="text-black text-lg md:text-xl">{label}</p>

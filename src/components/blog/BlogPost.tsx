@@ -38,6 +38,7 @@ export default function BlogPost({ post, params }: { post: article, params: { sl
                         height={500}
                         quality={100}
                         priority
+                        placeholder='blur'
                         className="object-cover w-full h-[400px] md:h-[460px] xl:h-[670px] rounded-3xl"
                     />
                     <div className="flex flex-col p-6 md:px-20 md:py-10 justify-start items-center bg-[#f7f7f7] rounded-3xl">

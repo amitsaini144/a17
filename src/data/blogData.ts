@@ -1,4 +1,7 @@
 import { article } from "@/types/blog";
+import VR from "../../public/VR.png"
+import pc from "../../public/pc.png"
+import typing from "../../public/typing.png"
 
 export const articles: article[] = [
     {
@@ -6,7 +9,7 @@ export const articles: article[] = [
         slug: 'the-future-of-wearable-tech-trends',
         label: 'The Future of Wearable Tech: Trends and Innovations to Watch',
         href: '/blog',
-        image: '/VR.png',
+        image: VR,
         date: 'Apr 08, 2022',
         content: [
             {
@@ -43,7 +46,7 @@ export const articles: article[] = [
         slug: 'the-rise-of-smart-home-devices',
         label: 'The Rise of Smart Home Devices: Transforming the Way We Live',
         href: '/blog',
-        image: '/pc.png',
+        image: pc,
         date: 'Mar 15, 2022',
         content: [
             {
@@ -80,7 +83,7 @@ export const articles: article[] = [
         slug: 'gaming-gadgets',
         label: 'Gaming Gadgets: Revolutionizing Entertainment and Beyond',
         href: '/blog',
-        image: '/typing.png',
+        image: typing,
         date: 'Feb 15, 2022',
         content: [
             {
