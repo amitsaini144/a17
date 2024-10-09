@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Search } from "lucide-react"
-import { carouselProducts } from "@/data/homeData"
 import Product from "@/components/shop/Product"
+import { shopProducts } from "@/data/shopData"
 
 export default function Shop() {
     return (
@@ -36,8 +36,8 @@ export default function Shop() {
                             </button>
                         </div>
 
-                        <div className="grid gris-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-8">
-                            {carouselProducts.map((product) => (
+                        <div className="grid gris-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-6">
+                            {shopProducts.map((product) => (
                                 <div key={product.id}>
                                     <Product {...product} />
                                 </div>
