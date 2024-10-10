@@ -13,9 +13,9 @@ export default function Footer() {
                         <hr className="block md:hidden xl:block" />
                     </div>
                     <div className="flex gap-3 w-fit items-end justify-center i text-black">
-                        <Link href="https://github.com/amitsaini144" className="bg-[#E6E6E6] rounded-full p-3" target="_blank" rel="noreferrer">
+                        <Link href="https://github.com/amitsaini144/a17" className="bg-[#E6E6E6] rounded-full p-3" target="_blank" rel="noreferrer">
                             <Icons.gitHub className="h-5 w-5" />
-                            <span className="sr-only">Facebook</span>
+                            <span className="sr-only">GitHub</span>
                         </Link>
                     
                         <Link href="https://www.linkedin.com/in/amitsaini144" className="bg-[#E6E6E6] rounded-full p-3" target="_blank" rel="noreferrer">
