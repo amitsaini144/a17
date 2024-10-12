@@ -5,12 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion"
 import { product } from "@/types/home";
 
-export default function Product({ label, href, image, price }: product) {
+export default function Product({ label, slug, image, price }: product) {
     return (
         <motion.div
             whileHover={{ scale: 1.02 }}
         >
-            <Link href={href} className="flex flex-col gap-4">
+            <Link href={`/shop/${slug}`} className="flex flex-col gap-4 w-full xl:w-[400px]">
                 <div className="rounded-3xl w-full">
                     <Image
                         src={image}

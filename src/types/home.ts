@@ -11,6 +11,7 @@ export interface navbarItem {
 
 export interface product {
     id: number,
+    slug: string,
     label: string,
     href: string,
     image: StaticImageData,
