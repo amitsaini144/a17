@@ -2,8 +2,9 @@ import { DotIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { ShieldCheckIcon, ArrowRightIcon, Package, HeadsetIcon } from "lucide-react"
+import { product } from "@/types/home"
 
-export default function ProductPage({ product }: { product: any }) {
+export default function ProductPage({ product }: { product: product }) {
     return (
         <div className="flex flex-col items-center w-full min-w-[320px]">
             <div className="w-full max-w-[1349px]">

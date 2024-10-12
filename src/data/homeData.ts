@@ -13,7 +13,7 @@ export const navItems: navbarItem[] = [
 ]
 
 export const carouselProducts: product[] = [
-    { id: 1, label: 'Headphones x-28m', href: '/shop', image: headphone, price: '149.99', },
-    { id: 2, label: 'eWatch SF 4', href: '/shop', image: eWatch, price: '349.99' },
-    { id: 3, label: 'eDisplay XR', href: '/shop', image: eDisplay, price: '649.99' },
+    { id: 1, slug:'headphones-x-28m', label: 'Headphones x-28m', href: '/shop', image: headphone, price: '149.99', },
+    { id: 2, slug:'ewatch-sf-4', label: 'eWatch SF 4', href: '/shop', image: eWatch, price: '349.99' },
+    { id: 3, slug:'edisplay-xr', label: 'eDisplay XR', href: '/shop', image: eDisplay, price: '649.99' },
 ]
