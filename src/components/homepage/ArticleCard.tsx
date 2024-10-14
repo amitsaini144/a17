@@ -16,7 +16,7 @@ export default function ArticleCard({ label, slug, image }: article) {
                         width={400}
                         height={400}
                         quality={90}
-                        priority
+                        loading="lazy"
                         placeholder="blur"
                         className="rounded-3xl object-cover h-96" />
                 </div>

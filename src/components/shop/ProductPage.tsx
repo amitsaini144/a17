@@ -18,37 +18,21 @@ export default function ProductPage({ product }: { product: product }) {
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 w-full">
                         <div className="flex flex-col-reverse md:flex-row gap-4">
-                            <div className="flex md:flex-col justify-between md:justify-around gap-2 md:gap-3 md:flex-shrink-0">
-                                <Image
-                                    src={product.subimages[0]}
-                                    alt={product.label}
-                                    width={180}
-                                    height={180}
-                                    quality={90}
-                                    priority
-                                    placeholder="blur"
-                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
-                                <Image
-                                    src={product.subimages[1]}
-                                    alt={product.label}
-                                    width={180}
-                                    height={240}
-                                    quality={90}
-                                    priority
-                                    placeholder="blur"
-                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
-                                <Image
-                                    src={product.subimages[2]}
-                                    alt={product.label}
-                                    width={180}
-                                    height={180}
-                                    quality={90}
-                                    priority
-                                    placeholder="blur"
-                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
-
+                            <div className="flex md:flex-col justify-between md:justify-around gap-2 md:gap-3">
+                                {[0, 1, 2].map((index) => (
+                                    <Image
+                                        key={index}
+                                        src={product.subimages[index]}
+                                        alt={product.label}
+                                        width={180}
+                                        height={240}
+                                        quality={90}
+                                        loading="lazy"
+                                        placeholder="blur"
+                                        className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
+                                ))}
                             </div>
-                            <div className="md:w-fit xl:h-full">
+                            <div className="xl:h-full">
                                 <Image
                                     src={product.image}
                                     alt={product.label}
@@ -57,7 +41,7 @@ export default function ProductPage({ product }: { product: product }) {
                                     quality={90}
                                     priority
                                     placeholder="blur"
-                                    className="rounded-3xl object-cover w-full h-[600px] md:w-[930px] md:h-[744px] xl:h-full xl:w-fit" />
+                                    className="rounded-3xl object-cover w-full h-[500px] md:w-[930px] md:h-[744px] xl:h-full xl:w-full" />
                             </div>
                         </div>
                         <div className="flex flex-col gap-6 flex-1">
@@ -76,30 +60,23 @@ export default function ProductPage({ product }: { product: product }) {
                                 </div>
                             </div>
                             <div className="flex flex-col justify-end flex-1">
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex gap-2 justify-between py-4">
-                                        <div className="flex gap-2 items-center text-black">
-                                            <ShieldCheckIcon className="w-6 h-6" />
-                                            <p className="text-sm md:text-base">Warranty</p>
+                                <div className="flex flex-col gap-4">
+                                    {[
+                                        { icon: ShieldCheckIcon, text: 'Warranty' },
+                                        { icon: Package, text: 'Shipping & delivery' },
+                                        { icon: HeadsetIcon, text: 'Support' },
+                                    ].map((item, index) => (
+                                        <div key={index}>
+                                            <div className="flex gap-2 justify-between py-4">
+                                                <div className="flex gap-2 items-center text-black">
+                                                    <item.icon className="w-6 h-6" />
+                                                    <p className="text-sm md:text-base">{item.text}</p>
+                                                </div>
+                                                <ArrowRightIcon className="w-6 h-6 text-black" />
+                                            </div>
+                                            {index < 2 && <div className="flex bg-[#e6e6e6] h-[1px] w-full"></div>}
                                         </div>
-                                        <ArrowRightIcon className="w-6 h-6 text-black" />
-                                    </div>
-                                    <div className="flex bg-[#e6e6e6] h-[1px] w-full"></div>
-                                    <div className="flex gap-2 items-center justify-between py-4">
-                                        <div className="flex gap-2 items-center text-black">
-                                            <Package className="w-6 h-6" />
-                                            <p className="text-sm md:text-base">Shipping & delivery</p>
-                                        </div>
-                                        <ArrowRightIcon className="w-6 h-6 text-black" />
-                                    </div>
-                                    <div className="flex bg-[#e6e6e6] h-[1px] w-full"></div>
-                                    <div className="flex gap-2 items-center justify-between py-4">
-                                        <div className="flex gap-2 items-center text-black">
-                                            <HeadsetIcon className="w-6 h-6" />
-                                            <p className="text-sm md:text-base">Support</p>
-                                        </div>
-                                        <ArrowRightIcon className="w-6 h-6 text-black" />
-                                    </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

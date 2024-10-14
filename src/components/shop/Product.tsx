@@ -18,7 +18,7 @@ export default function Product({ label, slug, image, price }: product) {
                         width={800}
                         height={800}
                         quality={90}
-                        priority 
+                        loading="lazy"
                         placeholder="blur"
                         className="rounded-3xl object-cover w-full" />
                 </div>

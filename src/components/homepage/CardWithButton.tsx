@@ -9,7 +9,7 @@ export default function CardWithButton({ image, label }: CardWithButtonProps) {
                 width={300}
                 height={150}
                 quality={90}
-                priority
+                loading="lazy"
                 placeholder="blur"
                 className="object-cover mix-blend-multiply overflow-hidden" />
             <div className="-mt-12 z-10 pb-8">

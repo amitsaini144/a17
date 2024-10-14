@@ -21,7 +21,7 @@ export default function Displays() {
                 width={300}
                 height={300}
                 quality={90}
-                priority
+                loading="lazy"
                 placeholder="blur"
                 className="object-contain mix-blend-multiply w-full md:w-1/2 max-h-[270px] md:max-h-[300px]" />
         </div>

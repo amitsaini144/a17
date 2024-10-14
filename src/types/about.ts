@@ -1,7 +1,8 @@
+import { StaticImageData } from "next/image"
 
 export interface largeCard {
     id: number,
-    img: string,
+    img: StaticImageData
     title: string,
     description: string
 }

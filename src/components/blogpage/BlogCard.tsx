@@ -16,7 +16,7 @@ export default function BlogCard({ label, href, image, date }: article) {
                         width={400}
                         height={400}
                         quality={90}
-                        priority
+                        loading="lazy"
                         className="rounded-3xl object-cover h-96 w-full xl:w-[400px]" />
                 </div>
                 <div className="flex flex-col gap-2">

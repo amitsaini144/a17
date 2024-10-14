@@ -51,7 +51,7 @@ export default function About() {
                             height={500}
                             quality={90}
                             placeholder="blur"
-                            priority
+                            loading="lazy"
                             className="object-cover w-full md:w-1/2 h-[390px] rounded-3xl " />
                         <div className="flex flex-col gap-6 text-center items-center justify-center h-fit md:w-1/2">
                             <h3 className="text-2xl md:text-[28px] xl:text-[32px] text-black">Premium Tech Selection</h3>
@@ -71,7 +71,7 @@ export default function About() {
                             height={500}
                             quality={90}
                             placeholder="blur"
-                            priority
+                            loading="lazy"
                             className="object-cover w-full md:w-1/2 h-[390px] rounded-3xl " />
                         <div className="flex flex-col gap-6 text-center items-center justify-center h-fit md:w-1/2">
                             <h3 className="text-2xl md:text-[28px] xl:text-[32px] text-black">Timeless Tech Solutions</h3>

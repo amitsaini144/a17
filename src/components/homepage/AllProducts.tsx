@@ -23,7 +23,7 @@ export default function AllProducts() {
                 width={612} 
                 height={360} 
                 quality={100} 
-                priority
+                loading="lazy"
                 placeholder="blur"
                 className="w-full" />
             </div>
