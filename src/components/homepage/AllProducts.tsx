@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import ultrawatch from "../../../public/ultrawatch.png"
+import ultrawatch from "../../../public/images/watch/ultrawatch.png"
 
 export default function AllProducts() {
     return (

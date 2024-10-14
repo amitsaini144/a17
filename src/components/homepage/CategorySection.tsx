@@ -1,8 +1,8 @@
 import AllProducts from "./AllProducts";
 import Displays from "./Displays";
 import CardWithButton from "./CardWithButton";
-import whiteHeadphone from "../../../public/whiteHeadphone.png" 
-import iphonepro from "../../../public/iphonepro.png"
+import whiteHeadphone from "../../../public/images/headphone/whiteHeadphone.png" 
+import iphonepro from "../../../public/images/phone/iphonepro.png"
 
 export default function CategorySection() {
     return (

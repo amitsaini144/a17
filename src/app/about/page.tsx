@@ -3,9 +3,9 @@ import { smallCardInfo, largeCardInfo } from "@/data/aboutData";
 import SmallCard from "@/components/about/SmallCard"
 import LargeCard from "@/components/about/LargeCard"
 import Link from "next/link"
-import about from "../../../public/about.png"
-import timeless from "../../../public/timeless.png"
-import premium from "../../../public/premium.png"
+import about from "../../../public/images/about.png"
+import timeless from "../../../public/images/timeless.png"
+import premium from "../../../public/images/premium.png"
 
 export default function About() {
     return (

@@ -20,32 +20,32 @@ export default function ProductPage({ product }: { product: product }) {
                         <div className="flex flex-col-reverse md:flex-row gap-4">
                             <div className="flex md:flex-col justify-between md:justify-around gap-2 md:gap-3 md:flex-shrink-0">
                                 <Image
-                                    src={product.image}
+                                    src={product.subimages[0]}
                                     alt={product.label}
                                     width={180}
                                     height={180}
                                     quality={90}
                                     priority
                                     placeholder="blur"
-                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[120px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
+                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
                                 <Image
-                                    src={product.image}
+                                    src={product.subimages[1]}
                                     alt={product.label}
                                     width={180}
                                     height={240}
                                     quality={90}
                                     priority
                                     placeholder="blur"
-                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[120px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
+                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
                                 <Image
-                                    src={product.image}
+                                    src={product.subimages[2]}
                                     alt={product.label}
                                     width={180}
                                     height={180}
                                     quality={90}
                                     priority
                                     placeholder="blur"
-                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[120px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
+                                    className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
 
                             </div>
                             <div className="md:w-fit xl:h-full">

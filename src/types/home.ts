@@ -9,11 +9,19 @@ export interface navbarItem {
     label: string;
 }
 
+export interface CarouselProps {
+    id: number,
+    slug: string,
+    label: string,
+    image: StaticImageData,
+    price: string,
+}
+
 export interface product {
     id: number,
     slug: string,
     label: string,
-    href: string,
     image: StaticImageData,
+    subimages: StaticImageData[],
     price: string,
 }
