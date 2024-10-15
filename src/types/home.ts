@@ -25,3 +25,9 @@ export interface product {
     subimages: StaticImageData[],
     price: string,
 }
+
+export interface review {
+    id: number,
+    userName: string,
+    review: string,
+}

@@ -15,7 +15,7 @@ export default function LargeCard({ card }: { card: largeCard }) {
             className="object-cover w-full h-[450px] xl:h-96 rounded-3xl" />
             <div className="flex flex-col gap-2">
                 <h4 className="text-xl md:text-2xl font-medium text-black">{card.title}</h4>
-                <p className="md:text-lg text-[#4a4a4a]">{card.description}</p>
+                <p className="md:text-lg text-[#4a4a4a] md:leading-tight">{card.description}</p>
             </div>
         </div>
     )

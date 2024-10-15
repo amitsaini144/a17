@@ -1,4 +1,4 @@
-import { product } from "@/types/home";
+import { product, review } from "@/types/home";
 import headphone from "../../public/images/headphone/headphone.png"
 import headphone1 from "../../public/images/headphone/headphone1.png"
 import headphone2 from "../../public/images/headphone/headphone2.png"
@@ -57,6 +57,10 @@ import headphoneGreen from "../../public/images/headphone/headphoneGreen.png"
 import headphoneGreen1 from "../../public/images/headphone/headphoneGreen1.png"
 import headphoneGreen2 from "../../public/images/headphone/headphoneGreen2.png"
 import headphoneGreen3 from "../../public/images/headphone/headphoneGreen3.png"
+import crystal from "../../public/images/crystal.png"
+import seamless from "../../public/images/seamless.png"
+import sleek from "../../public/images/sleek.png"
+import { largeCard } from "@/types/about";
 
 export const shopProducts: product[] = [
     {
@@ -74,7 +78,7 @@ export const shopProducts: product[] = [
     {
         id: 2,
         slug: 'headphones-or-27n',
-        label: 'Headphones or-27n',   
+        label: 'Headphones or-27n',
         image: orangeHeadphone,
         subimages: [
             orangeHeadphone1,
@@ -86,7 +90,7 @@ export const shopProducts: product[] = [
     {
         id: 3,
         slug: 'iphone-15-black',
-        label: 'iphone 15 Black',   
+        label: 'iphone 15 Black',
         image: iphoneBlack,
         subimages: [
             iphoneBlack1,
@@ -250,5 +254,44 @@ export const shopProducts: product[] = [
             eDisplay3
         ],
         price: '649.99',
+    },
+]
+
+export const imageCardInfo: largeCard[] = [
+    {
+        id: 1,
+        img: crystal,
+        title: 'Crystal Clear Visuals',
+        description: 'Experience stunning clarity and vibrant colors on the Apple Display SE 3, bringing your content to life like never before.'
+    },
+    {
+        id: 2,
+        img: seamless,
+        title: 'Seamless Connectivity',
+        description: 'Effortlessly connect to your Mac, iPad, or other devices with Thunderbolt and USB-C ports for enhanced productivity.'
+    },
+    {
+        id: 3,
+        img: sleek,
+        title: 'Sleek Design',
+        description: 'With its slim profile and edge-to-edge glass, the eDisplay adds a modern touch to any workspace while maximizing your viewing area.'
+    }
+]
+
+export const reviewCardInfo: review[] = [
+    {
+        id: 1,
+        userName: 'Sarah C',
+        review: "The eDisplay monitor I purchased from this store has completely transformed my work setup. The display quality is stunning, and I love how seamless it is to connect to my devices. It's made a noticeable difference in my productivity and overall workflow.",
+    },
+    {
+        id: 1,
+        userName: "Jason M",
+        review: "I was hesitant to invest in a new monitor, but I'm so glad I did. The eDisplay monitor exceeded my expectations in terms of both performance and design. It's sleek, it's vibrant, and it's made my gaming and movie-watching experiences so much more immersive.",
+    },
+    {
+        id: 1,
+        userName: "Emily K",
+        review: "I've been using the eDisplay monitor for a few weeks now, and I'm blown away by its versatility. Whether I'm editing photos or streaming videos, the colors are always accurate and vibrant. It's definitely raised the bar for what I expect from a monitor.",
     },
 ]

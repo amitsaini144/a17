@@ -3,6 +3,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { ShieldCheckIcon, ArrowRightIcon, Package, HeadsetIcon } from "lucide-react"
 import { product } from "@/types/home"
+import SmallCard from "../about/SmallCard"
+import { smallCardInfo } from "@/data/aboutData"
+import LargeCard from "../about/LargeCard"
+import { imageCardInfo } from "@/data/shopData"
+import ReviewCard from "./ReviewCard"
+import { reviewCardInfo } from "@/data/shopData"
 
 export default function ProductPage({ product }: { product: product }) {
     return (
@@ -79,6 +85,33 @@ export default function ProductPage({ product }: { product: product }) {
                                     ))}
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex p-4 md:px-6 md:py-10 xl:p-10">
+                    <div className="flex flex-col md:flex-row p-4 xl:py-6 xl:px-20 w-full gap-2 md:gap-8 bg-[#f7f7f7] rounded-3xl">
+                        {smallCardInfo.map((card) => (
+                            <SmallCard key={card.id} card={card} />
+                        ))}
+                    </div>
+                </div>
+                <div className="flex px-4 py-6 md:px-6 xl:px-10 md:pb-[60px] md:pt-6">
+                    <div className="flex flex-col xl:flex-row gap-10 xl:gap-6 w-full">
+                        {imageCardInfo.map((card) => (
+                            <LargeCard key={card.id} card={card} />
+                        ))}
+                    </div>
+                </div>
+                <div className="flex flex-col px-4 md:px-6 xl:px-10 pt-6 md:pt-[60px]">
+                    <div className="flex flex-col gap-10 pb-10 md:pb-16 xl:pb-20 border-b">
+                        <div className="flex flex-col md:flex-row gap-y-4">
+                            <h2 className="text-[32px] md:text-[40px] text-black font-medium md:w-1/2 xl:w-2/3 leading-tight">What customers<br /> <span className="text-[#7f7f7f]">are saying</span></h2>
+                            <p className="md:text-lg text-[#4a4a4a] md:w-1/2 xl:w-1/3 leading-tight">Experience the convenience and satisfaction shared by our thriving community of shoppers who trust our ecommerce store for their every purchase.</p>
+                        </div>
+                        <div className="flex flex-col xl:flex-row gap-y-4 gap-x-8 w-full">
+                            {reviewCardInfo.map((card) => (
+                                <ReviewCard key={card.id} {...card} />
+                            ))}
                         </div>
                     </div>
                 </div>
