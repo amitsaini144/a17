@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "./Icons";
+import map from "../../../public/images/map.png";
 
 export default function Footer() {
     return (
@@ -17,7 +18,7 @@ export default function Footer() {
                             <Icons.gitHub className="h-5 w-5" />
                             <span className="sr-only">GitHub</span>
                         </Link>
-                    
+
                         <Link href="https://www.linkedin.com/in/amitsaini144" className="bg-[#E6E6E6] rounded-full p-3" target="_blank" rel="noreferrer">
                             <Icons.linkedin className="h-5 w-5" />
                             <span className="sr-only">Linkedin</span>
@@ -51,12 +52,13 @@ export default function Footer() {
                     </div>
                     <div>
                         <Image
-                            src="/map.png"
+                            src={map}
                             alt="logo"
                             width={419}
                             height={100}
                             quality={90}
-                            priority
+                            placeholder="blur"
+                            loading="lazy"
                             className="object-cover h-[211px] md:h-[227px] xl:h-[280px] rounded-2xl" />
                     </div>
                 </div>

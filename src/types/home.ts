@@ -22,12 +22,22 @@ export interface product {
     slug: string,
     label: string,
     image: StaticImageData,
+    cover: StaticImageData,
     subimages: StaticImageData[],
     price: string,
+    category: string,
 }
 
 export interface review {
     id: number,
     userName: string,
     review: string,
+}
+
+export interface featureCard {
+    id: number,
+    img: StaticImageData,
+    title: string,
+    description: string,
+    category: string,   
 }

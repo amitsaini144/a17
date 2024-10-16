@@ -1,5 +1,5 @@
 import { carouselProducts } from "@/data/homeData"
-import ProductCard from "./productCard"
+import ProductCard from "./ProductCard"
 
 export default function Carousel() {
     return (

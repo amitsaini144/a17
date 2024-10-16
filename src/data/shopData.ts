@@ -1,4 +1,4 @@
-import { product, review } from "@/types/home";
+import { featureCard, product, review } from "@/types/home";
 import headphone from "../../public/images/headphone/headphone.png"
 import headphone1 from "../../public/images/headphone/headphone1.png"
 import headphone2 from "../../public/images/headphone/headphone2.png"
@@ -57,10 +57,22 @@ import headphoneGreen from "../../public/images/headphone/headphoneGreen.png"
 import headphoneGreen1 from "../../public/images/headphone/headphoneGreen1.png"
 import headphoneGreen2 from "../../public/images/headphone/headphoneGreen2.png"
 import headphoneGreen3 from "../../public/images/headphone/headphoneGreen3.png"
-import crystal from "../../public/images/crystal.png"
-import seamless from "../../public/images/seamless.png"
-import sleek from "../../public/images/sleek.png"
-import { largeCard } from "@/types/about";
+import monitorFeature1 from "../../public/images/monitor/monitorFeature1.png"
+import monitorFeature2 from "../../public/images/monitor/monitorFeature2.png"
+import monitorFeature3 from "../../public/images/monitor/monitorFeature3.png"
+import headphoneFeature1 from "../../public/images/headphone/headphoneFeature1.png"
+import headphoneFeature2 from "../../public/images/headphone/headphoneFeature2.png"
+import headphoneFeature3 from "../../public/images/headphone/headphoneFeature3.png"
+import phoneFeature1 from "../../public/images/phone/phoneFeature1.png"
+import phoneFeature2 from "../../public/images/phone/phoneFeature2.png"
+import phoneFeature3 from "../../public/images/phone/phoneFeature3.png"
+import watchFeature1 from "../../public/images/watch/watchFeature1.png"
+import watchFeature2 from "../../public/images/watch/watchFeature2.png"
+import watchFeature3 from "../../public/images/watch/watchFeature3.png"
+import monitorCover from "../../public/images/monitor/monitorcover.png"
+import headphoneCover from "../../public/images/headphone/headphonecover.png"
+import phoneCover from "../../public/images/phone/phonecover.png"
+import watchCover from "../../public/images/watch/watchcover.png"
 
 export const shopProducts: product[] = [
     {
@@ -68,226 +80,261 @@ export const shopProducts: product[] = [
         slug: 'edisplay-xg',
         label: 'eDisplay XG',
         image: displayXG,
-        subimages: [
-            displayXG1,
-            displayXG2,
-            displayXG3
-        ],
-        price: '649.99'
+        cover: monitorCover,
+        subimages: [displayXG1, displayXG2, displayXG3],
+        price: '649.99',
+        category: 'monitor',
     },
     {
         id: 2,
         slug: 'headphones-or-27n',
         label: 'Headphones or-27n',
         image: orangeHeadphone,
-        subimages: [
-            orangeHeadphone1,
-            orangeHeadphone2,
-            orangeHeadphone3
-        ],
-        price: '97.99'
+        cover: headphoneCover,
+        subimages: [orangeHeadphone1, orangeHeadphone2, orangeHeadphone3],
+        price: '97.99',
+        category: 'headphone',
     },
     {
         id: 3,
         slug: 'iphone-15-black',
         label: 'iphone 15 Black',
         image: iphoneBlack,
-        subimages: [
-            iphoneBlack1,
-            iphoneBlack2,
-            iphoneBlack3
-        ],
-        price: '799.99'
+        cover: phoneCover,
+        subimages: [iphoneBlack1, iphoneBlack2, iphoneBlack3],
+        price: '799.99',
+        category: 'phone',
     },
     {
         id: 4,
         slug: 'headphones-w-96c',
         label: 'Headphones w-96c',
         image: headphone_96c,
-        subimages: [
-            headphone_96c1,
-            headphone_96c2,
-            headphone_96c3
-        ],
-        price: '129.99'
+        cover: headphoneCover,
+        subimages: [headphone_96c1, headphone_96c2, headphone_96c3],
+        price: '129.99',
+        category: 'headphone',
     },
     {
         id: 5,
         slug: 'edisplay-xe',
         label: 'eDisplay XE',
         image: displayXE,
-        subimages: [
-            displayXE1,
-            displayXE2,
-            displayXE3
-        ],
-        price: '649.99'
+        cover: monitorCover,
+        subimages: [displayXE1, displayXE2, displayXE3],
+        price: '649.99',
+        category: 'monitor',
     },
     {
         id: 6,
         slug: 'headphones-z-23c',
         label: 'Headphones z-23c',
         image: headphoneBlack,
-        subimages: [
-            headphoneBlack1,
-            headphoneBlack2,
-            headphoneBlack3
-        ],
-        price: '149.99'
+        cover: headphoneCover,
+        subimages: [headphoneBlack1, headphoneBlack2, headphoneBlack3],
+        price: '149.99',
+        category: 'headphone',
     },
     {
         id: 7,
         slug: 'iphone-15-red',
         label: 'iphone_15 Red',
         image: iphoneRed,
-        subimages: [
-            iphoneRed1,
-            iphoneRed2,
-            iphoneRed3
-        ],
-        price: '799.99'
+        cover: phoneCover,
+        subimages: [iphoneRed1, iphoneRed2, iphoneRed3],
+        price: '799.99',
+        category: 'phone',
     },
     {
         id: 8,
         slug: 'iphone-15-white',
         label: 'iphone 15 White',
         image: iphoneWhite,
-        subimages: [
-            iphoneWhite1,
-            iphoneWhite2,
-            iphoneWhite3
-        ],
-        price: '799.99'
+        cover: phoneCover,
+        subimages: [iphoneWhite1, iphoneWhite2, iphoneWhite3],
+        price: '799.99',
+        category: 'phone',
     },
     {
         id: 9,
         slug: 'ewatch-sf-3-black',
         label: 'eWatch SF 3 Black',
         image: watchBlack,
-        subimages: [
-            watchBlack1,
-            watchBlack2,
-            watchBlack3
-        ],
-        price: '319.99'
+        cover: watchCover,
+        subimages: [watchBlack1, watchBlack2, watchBlack3],
+        price: '319.99',
+        category: 'smartwatch',
     },
     {
         id: 10,
         slug: 'ewatch-sf-3-white',
         label: 'eWatch SF 3 White',
         image: watchWhite,
-        subimages: [
-            watchBlack1,
-            watchBlack2,
-            watchBlack3
-        ],
-        price: '319.99'
+        cover: watchCover,
+        subimages: [watchBlack1, watchBlack2, watchBlack3],
+        price: '319.99',
+        category: 'smartwatch',
     },
     {
         id: 11,
         slug: 'edisplay-xs',
         label: 'eDisplay XS',
         image: displayXS,
-        subimages: [
-            displayXS1,
-            displayXS2,
-            displayXS3
-        ],
-        price: '649.99'
+        cover: monitorCover,
+        subimages: [displayXS1, displayXS2, displayXS3],
+        price: '649.99',
+        category: 'monitor',
     },
     {
         id: 12,
-        slug: 'headphone-w-99',
-        label: 'Headphone w-99',
-        image: headphones_99,
-        subimages: [
-            headphones_991,
-            headphones_992,
-            headphones_993
-        ],
-        price: '129.99'
+        slug: 'headphones-x-28m',
+        label: 'Headphones x-28m',
+        image: headphone,
+        cover: headphoneCover,
+        subimages: [headphone1, headphone2, headphone3],
+        price: '149.99',
+        category: 'headphone',
     },
+
     {
         id: 13,
         slug: 'headphone-e-11g',
         label: 'Headphone e-11g',
         image: headphoneGreen,
-        subimages: [
-            headphoneGreen1,
-            headphoneGreen2,
-            headphoneGreen3
-        ],
-        price: '97.99'
+        cover: headphoneCover,
+        subimages: [headphoneGreen1, headphoneGreen2, headphoneGreen3],
+        price: '97.99',
+        category: 'headphone',
     },
     {
         id: 14,
-        slug: 'headphones-x-28m',
-        label: 'Headphones x-28m',
-        image: headphone,
-        subimages: [
-            headphone1,
-            headphone2,
-            headphone3
-        ],
-        price: '149.99',
+        slug: 'headphone-w-99',
+        label: 'Headphone w-99',
+        image: headphones_99,
+        cover: headphoneCover,
+        subimages: [headphones_991, headphones_992, headphones_993],
+        price: '129.99',
+        category: 'headphone',
     },
     {
         id: 15,
         slug: 'ewatch-sf-4',
         label: 'eWatch SF-4',
         image: eWatch,
-        subimages: [
-            watchBlack1,
-            watchBlack2,
-            watchBlack3
-        ],
+        cover: watchCover,
+        subimages: [watchBlack1, watchBlack2, watchBlack3],
         price: '349.99',
+        category: 'smartwatch',
     },
     {
         id: 16,
         slug: 'edisplay-xr',
         label: 'eDisplay XR',
         image: eDisplay,
-        subimages: [
-            eDisplay1,
-            eDisplay2,
-            eDisplay3
-        ],
+        cover: monitorCover,
+        subimages: [eDisplay1, eDisplay2, eDisplay3],
         price: '649.99',
+        category: 'monitor',
     },
 ]
 
-export const imageCardInfo: largeCard[] = [
+export const featureCardInfo: featureCard[] = [
     {
         id: 1,
-        img: crystal,
+        img: monitorFeature1,
         title: 'Crystal Clear Visuals',
-        description: 'Experience stunning clarity and vibrant colors on the Apple Display SE 3, bringing your content to life like never before.'
+        description: 'Experience stunning clarity and vibrant colors on the Apple Display SE 3, bringing your content to life like never before.',
+        category: 'monitor',
     },
     {
         id: 2,
-        img: seamless,
+        img: monitorFeature2,
         title: 'Seamless Connectivity',
-        description: 'Effortlessly connect to your Mac, iPad, or other devices with Thunderbolt and USB-C ports for enhanced productivity.'
+        description: 'Effortlessly connect to your Mac, iPad, or other devices with Thunderbolt and USB-C ports for enhanced productivity.',
+        category: 'monitor',
     },
     {
         id: 3,
-        img: sleek,
+        img: monitorFeature3,
         title: 'Sleek Design',
-        description: 'With its slim profile and edge-to-edge glass, the eDisplay adds a modern touch to any workspace while maximizing your viewing area.'
-    }
+        description: 'With its slim profile and edge-to-edge glass, the eDisplay adds a modern touch to any workspace while maximizing your viewing area.',
+        category: 'monitor',
+    },
+    {
+        id: 4,
+        img: headphoneFeature1,
+        title: 'Sound Superiority, Anywhere',
+        description: "Experience top-tier audio quality. Whether you're into rock or classical, these buds deliver exceptional sound across all genres.",
+        category: 'headphone',
+    },
+    {
+        id: 5,
+        img: headphoneFeature2,
+        title: 'Power on the Move',
+        description: "Stay charged with portable capsule, giving you 4 full charges for your headphones wherever you roam.",
+        category: 'headphone',
+    },
+    {
+        id: 6,
+        img: headphoneFeature3,
+        title: 'Tailored Comfort',
+        description: "With 6 tips in varying sizes, our headphones ensures a perfect fit for every ear, guaranteeing comfort during extended wear.",
+        category: 'headphone',
+    },
+    {
+        id: 7,
+        img: phoneFeature1,
+        title: 'Powerful Performance',
+        description: "Experience lightning-fast processing speeds and smooth multitasking, empowering you to tackle any task with ease and efficiency.",
+        category: 'phone',
+    },
+    {
+        id: 8,
+        img: phoneFeature2,
+        title: 'Innovative Features',
+        description: "Explore a wealth of innovative features and apps designed to streamline your daily life, from augmented reality experiences to voice-activated assistants.",
+        category: 'phone',
+    },
+    {
+        id: 9,
+        img: phoneFeature3,
+        title: 'Sleek Design',
+        description: "Make a statement with the iPhone's sleek and elegant design, crafted from premium materials for a sophisticated look and feel.",
+        category: 'phone',
+    },
+    {
+        id: 10,
+        img: watchFeature1,
+        title: 'Fitness Tracking',
+        description: "Monitor your health and fitness goals with precision, tracking your activity, heart rate, and more.",
+        category: 'smartwatch',
+    },
+    {
+        id: 11,
+        img: watchFeature2,
+        title: 'Versatile Design',
+        description: "Elevate your look with a sleek and modern design that seamlessly transitions from the gym to the boardroom.",
+        category: 'smartwatch',
+    },
+    {
+        id: 12,
+        img: watchFeature3,
+        title: 'Effortless Connectivity',
+        description: "Seamlessly stay in touch with your world, receiving notifications and calls directly on your wrist.",
+        category: 'smartwatch',
+    },
 ]
 
 export const reviewCardInfo: review[] = [
     {
         id: 1,
         userName: 'Sarah C',
-        review: "The eDisplay monitor I purchased from this store has completely transformed my work setup. The display quality is stunning, and I love how seamless it is to connect to my devices. It's made a noticeable difference in my productivity and overall workflow.",
+        review: "The eDisplay monitor I purchased from this store has completely transformed my work setup. The display quality is stunning, and I love how monitorFeature2 it is to connect to my devices. It's made a noticeable difference in my productivity and overall workflow.",
     },
     {
         id: 1,
         userName: "Jason M",
-        review: "I was hesitant to invest in a new monitor, but I'm so glad I did. The eDisplay monitor exceeded my expectations in terms of both performance and design. It's sleek, it's vibrant, and it's made my gaming and movie-watching experiences so much more immersive.",
+        review: "I was hesitant to invest in a new monitor, but I'm so glad I did. The eDisplay monitor exceeded my expectations in terms of both performance and design. It's monitorFeature3, it's vibrant, and it's made my gaming and movie-watching experiences so much more immersive.",
     },
     {
         id: 1,

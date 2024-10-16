@@ -12,9 +12,9 @@ export async function generateStaticParams() {
 }
 
 export default function Product({ params }: { params: { slug: string } }) {
-    const product = getProductBySlug(params.slug)
+    const currentProduct = getProductBySlug(params.slug)
 
-    if (!product) {
+    if (!currentProduct) {
         return (
             <div className="flex flex-col items-center w-full min-w-[320px]">
                 <div className="w-full max-w-[1349px]">
@@ -24,5 +24,5 @@ export default function Product({ params }: { params: { slug: string } }) {
         )
     }
 
-    return <ProductPage product={product} />
+    return <ProductPage currentProduct={currentProduct} allProducts={shopProducts} />
 }
