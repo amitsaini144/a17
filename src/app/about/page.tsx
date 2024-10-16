@@ -23,7 +23,7 @@ export default function About() {
                         alt="about"
                         width={1200}
                         height={500}
-                        quality={100}
+                        quality={90}
                         placeholder="blur"
                         priority
                         className="object-cover w-full h-[400px] md:h-[460px] xl:h-[670px] rounded-3xl " />
