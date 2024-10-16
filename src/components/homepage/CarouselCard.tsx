@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion"
 import { CarouselProps } from "@/types/home";
 
-export default function ProductCard({ label, slug, image, price, }: CarouselProps) {
+export default function CarouselCard({ label, slug, image, price, }: CarouselProps) {
     return (
         <motion.div
             whileHover={{ scale: 1.02 }}
