@@ -1,5 +1,6 @@
 import Image from "next/image"
 import macbook from "../../../public/images/monitor/macbook.png"
+import Link from "next/link"
 
 export default function Displays() {
     return (
@@ -10,9 +11,11 @@ export default function Displays() {
                     <p className="text-sm md:text-base">Experience crystal-clear clarity and <br className="xl:hidden" /> vibrant visuals with our Displays.</p>
                 </div>
                 <div className="mt-4">
-                    <button className="border px-9 py-4 rounded-full text-black bg-white hover:bg-gray-100 transition-colors">
-                        Check Displays
-                    </button>
+                    <Link href="/shop/monitor">
+                        <button className="border px-9 py-4 rounded-full text-black bg-white hover:bg-gray-100 transition-colors">
+                            Check Displays
+                        </button>
+                    </Link>
                 </div>
             </div>
             <Image

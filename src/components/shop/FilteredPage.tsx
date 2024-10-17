@@ -1,9 +1,10 @@
-import Link from "next/link"
+
 import { Search } from "lucide-react"
 import Product from "@/components/shop/Product"
-import { shopProducts } from "@/data/shopData"
+import { product } from "@/types/home"
+import CategoryLinks from "./CategoryLinks"
 
-export default function Shop() {
+export default function FilteredPage({ products }: { products: product[] }) {
     return (
         <div className="flex flex-col items-center w-full min-w-[320px] bg-white">
             <div className="w-full max-w-[1349px]">
@@ -14,30 +15,14 @@ export default function Shop() {
                     </div>
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-row-reverse md:flex-row justify-between gap-4">
-                            <div className="flex gap-2 md:gap-1 xl:gap-3 text-sm md:text-base overflow-x-auto scrollbar-hide">
-                                <Link href="/shop" className="border px-8 py-3 rounded-full bg-black text-white flex-shrink-0">
-                                    <p>All products</p>
-                                </Link>
-                                <Link href="/shop/headphone" className="border px-8 py-3 rounded-full text-black">
-                                    <p>Headphones</p>
-                                </Link>
-                                <Link href="/shop/monitor" className="border px-8 py-3 rounded-full text-black">
-                                    <p>Displays</p>
-                                </Link>
-                                <Link href="/shop/smartwatch" className="border px-8 py-3 rounded-full text-black">
-                                    <p>Watches</p>
-                                </Link>
-                                <Link href="/shop/phone" className="border px-8 py-3 rounded-full text-black">
-                                    <p>Phones</p>
-                                </Link>
-                            </div>
+                            <CategoryLinks />
                             <button>
                                 <Search className="text-[#4a4a4a]" />
                             </button>
                         </div>
 
                         <div className="grid gris-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-6">
-                            {shopProducts.map((product) => (
+                            {products.map((product) => (
                                 <div key={product.id}>
                                     <Product {...product} />
                                 </div>

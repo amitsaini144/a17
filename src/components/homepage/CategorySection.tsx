@@ -18,8 +18,8 @@ export default function CategorySection() {
                     <div className="flex flex-col gap-6 justify-around">
                         <Displays />
                         <div className="grid md:grid-cols-2 gap-6 h-1/2 overflow-hidden">
-                            <CardWithButton image={whiteHeadphone} label="Headphones" />
-                            <CardWithButton image={iphonepro} label="Phones" />
+                            <CardWithButton image={whiteHeadphone} label="Headphones" href="/shop/headphone" />
+                            <CardWithButton image={iphonepro} label="Phones" href="/shop/phone" />
                         </div>
                     </div>
                 </div>
