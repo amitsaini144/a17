@@ -73,7 +73,7 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                         <div className="flex flex-col gap-6 flex-1">
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-[32px] xl:text-[40px] text-black leading-tight w-fit">{currentProduct.label}</h1>
-                                <p className="text-sm md:text-base text-[#1f1f1f]">Upgrade your workspace with the eDisplay XS and take your productivity to new heights.</p>
+                                <p className="text-sm md:text-base text-[#1f1f1f]">{currentProduct.description}</p>
                             </div>
                             <h2 className="text-2xl md:text-[28px] xl:text-[32px] text-black w-fit">USD {currentProduct.price}</h2>
                             <div className="flex flex-col w-full gap-4 items-center">

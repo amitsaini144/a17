@@ -26,6 +26,7 @@ export interface product {
     cover: StaticImageData,
     subimages: StaticImageData[],
     price: string,
+    description: string,
     category: string,
 }
 

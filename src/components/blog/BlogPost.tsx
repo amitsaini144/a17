@@ -30,7 +30,7 @@ export default function BlogPost({ post, params }: { post: article, params: { sl
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col px-4 md:px-10 pt-6 md:pt-10 pb-16 gap-6">
+                <div className="flex flex-col px-4 md:px-10 pt-6 md:pt-10 gap-6">
                     <Image
                         src={post.image}
                         alt={post.label}
@@ -41,20 +41,22 @@ export default function BlogPost({ post, params }: { post: article, params: { sl
                         placeholder='blur'
                         className="object-cover w-full h-[400px] md:h-[460px] xl:h-[670px] rounded-3xl"
                     />
-                    <div className="flex flex-col p-6 md:px-20 md:py-10 justify-start items-center bg-[#f7f7f7] rounded-3xl">
-                        <div className="flex flex-col gap-24 md:w-[80%] text-black">
-                            {post.content.map((section, index) => (
-                                <div key={index} className="flex flex-col gap-4 text-black">
-                                    {section.title && <h3 className="text-2xl md:text-[32px] font-semibold">{section.title}</h3>}
-                                    <p className="text-lg">{section.text}</p>
-                                </div>
-                            ))}
+                    <div className='pb-10 md:pb-16 border-b-2'>
+                        <div className="flex flex-col p-6 md:px-20 md:py-10 justify-start items-center bg-[#f7f7f7] rounded-3xl">
+                            <div className="flex flex-col gap-24 md:w-[80%] text-black">
+                                {post.content.map((section, index) => (
+                                    <div key={index} className="flex flex-col gap-4 text-black">
+                                        {section.title && <h3 className="text-2xl md:text-[32px] font-semibold">{section.title}</h3>}
+                                        <p className="text-lg md:text-xl">{section.text}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className='flex flex-col px-4 md:px-10 pb-0 pt-6 md:pt-10 gap-6'>
+                <div className='flex flex-col px-4 md:px-10 pb-0 pt-10 md:pt-16 gap-6'>
                     <div className='flex flex-col gap-10'>
-                        <h2 className='text-[40px] text-black font-medium leading-tight'>Check out other<br /> items from our blog</h2>
+                        <h2 className='text-[40px] text-black font-medium leading-tight'>Check out other<br /> <span className='text-[#4a4a4a]'>items from our blog</span></h2>
                         <div className="flex flex-col md:flex-row justify-start items-center gap-4">
                             {otherArticles.map((article) => (
                                 <div key={article.id}>

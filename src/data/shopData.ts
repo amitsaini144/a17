@@ -83,6 +83,7 @@ export const shopProducts: product[] = [
         cover: monitorCover,
         subimages: [displayXG1, displayXG2, displayXG3],
         price: '649.99',
+        description: "Upgrade your workspace with the eDisplay XS and take your productivity to new heights.",
         category: 'monitor',
     },
     {
@@ -93,6 +94,7 @@ export const shopProducts: product[] = [
         cover: headphoneCover,
         subimages: [orangeHeadphone1, orangeHeadphone2, orangeHeadphone3],
         price: '97.99',
+        description: "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
         category: 'headphone',
     },
     {
@@ -103,6 +105,7 @@ export const shopProducts: product[] = [
         cover: phoneCover,
         subimages: [iphoneBlack1, iphoneBlack2, iphoneBlack3],
         price: '799.99',
+        description: "Experience the pinnacle of technology and design with iPhone. Seamlessly integrated features, stunning display, and powerful performance redefine what's possible in the world of smartphones.",
         category: 'phone',
     },
     {
@@ -113,6 +116,7 @@ export const shopProducts: product[] = [
         cover: headphoneCover,
         subimages: [headphone_96c1, headphone_96c2, headphone_96c3],
         price: '129.99',
+        description: "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
         category: 'headphone',
     },
     {
@@ -123,6 +127,7 @@ export const shopProducts: product[] = [
         cover: monitorCover,
         subimages: [displayXE1, displayXE2, displayXE3],
         price: '649.99',
+        description: "Upgrade your workspace with the eDisplay XE and take your productivity to new heights.",
         category: 'monitor',
     },
     {
@@ -133,6 +138,7 @@ export const shopProducts: product[] = [
         cover: headphoneCover,
         subimages: [headphoneBlack1, headphoneBlack2, headphoneBlack3],
         price: '149.99',
+        description: "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
         category: 'headphone',
     },
     {
@@ -143,6 +149,7 @@ export const shopProducts: product[] = [
         cover: phoneCover,
         subimages: [iphoneRed1, iphoneRed2, iphoneRed3],
         price: '799.99',
+        description: "Experience the pinnacle of technology and design with iPhone. Seamlessly integrated features, stunning display, and powerful performance redefine what's possible in the world of smartphones.",
         category: 'phone',
     },
     {
@@ -153,6 +160,7 @@ export const shopProducts: product[] = [
         cover: phoneCover,
         subimages: [iphoneWhite1, iphoneWhite2, iphoneWhite3],
         price: '799.99',
+        description: "Experience the pinnacle of technology and design with iPhone. Seamlessly integrated features, stunning display, and powerful performance redefine what's possible in the world of smartphones.",
         category: 'phone',
     },
     {
@@ -163,6 +171,7 @@ export const shopProducts: product[] = [
         cover: watchCover,
         subimages: [watchBlack1, watchBlack2, watchBlack3],
         price: '319.99',
+        description: "Stay connected, organized, and motivated with eWatch. Enjoy seamless connectivity, comprehensive fitness tracking, stylish design, and convenient smart features—all in one sleek package.",
         category: 'smartwatch',
     },
     {
@@ -173,6 +182,7 @@ export const shopProducts: product[] = [
         cover: watchCover,
         subimages: [watchBlack1, watchBlack2, watchBlack3],
         price: '319.99',
+        description: "Stay connected, organized, and motivated with eWatch. Enjoy seamless connectivity, comprehensive fitness tracking, stylish design, and convenient smart features—all in one sleek package.",
         category: 'smartwatch',
     },
     {
@@ -183,6 +193,7 @@ export const shopProducts: product[] = [
         cover: monitorCover,
         subimages: [displayXS1, displayXS2, displayXS3],
         price: '649.99',
+        description: "Upgrade your workspace with the eDisplay XE and take your productivity to new heights.",
         category: 'monitor',
     },
     {
@@ -193,6 +204,7 @@ export const shopProducts: product[] = [
         cover: headphoneCover,
         subimages: [headphone1, headphone2, headphone3],
         price: '149.99',
+        description: "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
         category: 'headphone',
     },
 
@@ -204,6 +216,7 @@ export const shopProducts: product[] = [
         cover: headphoneCover,
         subimages: [headphoneGreen1, headphoneGreen2, headphoneGreen3],
         price: '97.99',
+        description: "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
         category: 'headphone',
     },
     {
@@ -214,6 +227,7 @@ export const shopProducts: product[] = [
         cover: headphoneCover,
         subimages: [headphones_991, headphones_992, headphones_993],
         price: '129.99',
+        description: "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
         category: 'headphone',
     },
     {
@@ -224,6 +238,7 @@ export const shopProducts: product[] = [
         cover: watchCover,
         subimages: [watchBlack1, watchBlack2, watchBlack3],
         price: '349.99',
+        description: "Stay connected, organized, and motivated with eWatch. Enjoy seamless connectivity, comprehensive fitness tracking, stylish design, and convenient smart features—all in one sleek package.",
         category: 'smartwatch',
     },
     {
@@ -234,6 +249,7 @@ export const shopProducts: product[] = [
         cover: monitorCover,
         subimages: [eDisplay1, eDisplay2, eDisplay3],
         price: '649.99',
+        description: "Upgrade your workspace with the eDisplay XE and take your productivity to new heights.",
         category: 'monitor',
     },
 ]

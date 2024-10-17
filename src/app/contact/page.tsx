@@ -1,16 +1,6 @@
-"use client"
-import { useState } from "react"
+import Form from "@/components/contact/Form"
 
 export default function Contact() {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [message, setMessage] = useState('')
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        // Handle form submission logic here
-        console.log('Form submitted:', { name, email, message })
-    }
 
     return (
         <div className="flex flex-col items-center w-full min-w-[320px] bg-white">
@@ -43,31 +33,7 @@ export default function Contact() {
                             <p className="text-lg md:text-xl text-black">Drop us a message</p>
                             <p className="md:w-2/3 text-[#4a4a4a] md:text-lg">We&apos;re always here to assist you at Etec. Our customer support team is dedicated to addressing your inquiries.</p>
                         </div>
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                            <div className="flex flex-col md:flex-row w-full gap-3">
-                                <input
-                                    required
-                                    type="text"
-                                    value={name}
-                                    placeholder="Name"
-                                    onChange={(e) => setName(e.target.value)}
-                                    className="p-4 rounded-full w-full focus:outline-none text-black" />
-                                <input
-                                    required
-                                    type="email"
-                                    value={email}
-                                    placeholder="Email"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="p-4 rounded-3xl w-full focus:outline-none text-black" />
-                            </div>
-                            <textarea
-                                required
-                                value={message}
-                                placeholder="Message"
-                                onChange={(e) => setMessage(e.target.value)}
-                                className="p-4 w-full h-80 resize-none rounded-3xl focus:outline-none text-black"></textarea>
-                            <input type="submit" value="Send message" className="p-4 rounded-3xl w-full bg-black text-white cursor-pointer" />
-                        </form>
+                        <Form />
                     </div>
                 </div>
             </div>

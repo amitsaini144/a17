@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "./Icons";
 import map from "../../../public/images/map.png";
+import { MapPin } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -50,7 +51,7 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="relative w-full max-w-[419px]">
                         <Image
                             src={map}
                             alt="logo"
@@ -60,6 +61,12 @@ export default function Footer() {
                             placeholder="blur"
                             loading="lazy"
                             className="object-cover h-[211px] md:h-[227px] xl:h-[280px] rounded-2xl" />
+                        <div className="flex flex-col items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-y-1">
+                            <div className="bg-[#414141] px-[15px] py-2 rounded-xl text-white w-fit">
+                                <p className="text-[12px]">We are here</p>
+                            </div>
+                            <MapPin className="w-6 h-6 text-[#414141]" />
+                        </div>
                     </div>
                 </div>
             </div>
