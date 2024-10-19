@@ -1,4 +1,4 @@
-import { featureCard } from "@/types/home"
+import { featureCard } from "@/types/shop"
 import Image from "next/image"
 
 export function FeatureCard({ card }: { card: featureCard }) {

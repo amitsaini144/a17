@@ -1,6 +1,6 @@
 import { shopProducts } from "@/data/shopData"
 import ProductPage from "@/components/shop/ProductPage"
-import { product } from "@/types/home";
+import { product } from "@/types/shop";
 import FilteredPage from "@/components/shop/FilteredPage";
 
 type QueryResult =

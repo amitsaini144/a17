@@ -1,4 +1,4 @@
-import { featureCard, product, review } from "@/types/home";
+import { featureCard, Item, product, review } from "@/types/shop";
 import headphone from "../../public/images/headphone/headphone.png"
 import headphone1 from "../../public/images/headphone/headphone1.png"
 import headphone2 from "../../public/images/headphone/headphone2.png"
@@ -73,6 +73,7 @@ import monitorCover from "../../public/images/monitor/monitorcover.png"
 import headphoneCover from "../../public/images/headphone/headphonecover.png"
 import phoneCover from "../../public/images/phone/phonecover.png"
 import watchCover from "../../public/images/watch/watchcover.png"
+import { ShieldCheckIcon, Package, HeadsetIcon } from "lucide-react"
 
 export const shopProducts: product[] = [
     {
@@ -100,7 +101,7 @@ export const shopProducts: product[] = [
     {
         id: 3,
         slug: 'iphone-15-black',
-        label: 'iphone 15 Black',
+        label: 'iPhone 15 Black',
         image: iphoneBlack,
         cover: phoneCover,
         subimages: [iphoneBlack1, iphoneBlack2, iphoneBlack3],
@@ -144,7 +145,7 @@ export const shopProducts: product[] = [
     {
         id: 7,
         slug: 'iphone-15-red',
-        label: 'iphone_15 Red',
+        label: 'iPhone 15 Red',
         image: iphoneRed,
         cover: phoneCover,
         subimages: [iphoneRed1, iphoneRed2, iphoneRed3],
@@ -155,7 +156,7 @@ export const shopProducts: product[] = [
     {
         id: 8,
         slug: 'iphone-15-white',
-        label: 'iphone 15 White',
+        label: 'iPhone 15 White',
         image: iphoneWhite,
         cover: phoneCover,
         subimages: [iphoneWhite1, iphoneWhite2, iphoneWhite3],
@@ -358,3 +359,46 @@ export const reviewCardInfo: review[] = [
         review: "I've been using the eDisplay monitor for a few weeks now, and I'm blown away by its versatility. Whether I'm editing photos or streaming videos, the colors are always accurate and vibrant. It's definitely raised the bar for what I expect from a monitor.",
     },
 ]
+
+export const items: Item[] = [
+    {
+        id: 1,
+        icon: ShieldCheckIcon,
+        text: 'Warranty',
+        href: "/",
+        description: [
+            "Etec offers a two-year manufacturer warranty on all new headphones purchased from authorized retailers in most countries. Refurbished products purchased from authorized retailers are covered by a one-year manufacturer warranty. If you believe your product is faulty and is within the warranty period, please fill out this form to submit a warranty claim here.",
+
+            "After you’ve completed and submitted the warranty claim form our customer service team will proceed with your claim within two business days. If you are required to return your product prior to approval, you will receive an email with a prepaid return shipping label. Please do not mail your product to etec without a prepaid return label provided by Etec as this will delay the claims process.",
+
+            "If no further information is needed, you’ll receive an approval confirmation email, followed by a shipping confirmation email with a tracking number for your replacement headphones once they have been shipped. Please do not discard your faulty headphones until you receive your replacement.",
+        ]
+    },
+    {
+        id: 2,
+        icon: Package,
+        text: 'Shipping & delivery',
+        href: "/shop",
+        description: [
+            "For all orders exceeding a value of 100USD shipping is offered for free.",
+
+            "Returns will be accepted for up to 10 days of Customer’s receipt or tracking number on unworn items. You, as a Customer, are obliged to inform us via email before you return the item.",
+
+            "Otherwise, standard shipping charges apply. Check out our delivery Terms & Conditions for more details.",
+        ]
+    },
+    {
+        id: 3,
+        icon: HeadsetIcon,
+        text: 'Support',
+        href: "/blog",
+    }
+]
+
+export const categories = [
+    { name: 'All products', slug: '' },
+    { name: 'Headphones', slug: 'headphone' },
+    { name: 'Displays', slug: 'monitor' },
+    { name: 'Watches', slug: 'smartwatch' },
+    { name: 'Phones', slug: 'phone' },
+];

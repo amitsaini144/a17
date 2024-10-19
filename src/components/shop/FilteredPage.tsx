@@ -1,7 +1,7 @@
 
 import { Search } from "lucide-react"
 import Product from "@/components/shop/Product"
-import { product } from "@/types/home"
+import { product } from "@/types/shop"
 import CategoryLinks from "./CategoryLinks"
 
 export default function FilteredPage({ products }: { products: product[] }) {

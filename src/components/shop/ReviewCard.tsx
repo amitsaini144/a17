@@ -1,4 +1,4 @@
-import { review } from "@/types/home";
+import { review } from "@/types/shop";
 
 export default function ReviewCard({ userName, review }: review) {
     return (

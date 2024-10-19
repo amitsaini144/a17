@@ -32,24 +32,24 @@ export default function Form() {
                     value={name}
                     placeholder="Name"
                     onChange={(e) => setName(e.target.value)}
-                    className="p-4 rounded-3xl w-full focus:outline-none text-black" />
+                    className="p-4 rounded-xl w-full focus:outline-none text-black bg-[#f7f7f7]" />
                 <input
                     required
                     type="email"
                     value={email}
                     placeholder="Email"
                     onChange={(e) => setEmail(e.target.value)}
-                    className="p-4 rounded-3xl w-full focus:outline-none text-black" />
+                    className="p-4 rounded-xl w-full focus:outline-none text-black bg-[#f7f7f7]" />
             </div>
             <textarea
                 required
                 value={message}
                 placeholder="Message"
                 onChange={(e) => setMessage(e.target.value)}
-                className="p-4 w-full h-80 resize-none rounded-2xl focus:outline-none text-black"></textarea>
+                className="p-4 w-full h-40 resize-none rounded-xl focus:outline-none text-black bg-[#f7f7f7]"></textarea>
             <button
                 type="submit"
-                className="px-8 py-3 bg-black text-white rounded-3xl text-lg w-full flex items-center justify-center">
+                className="px-8 py-3 bg-black text-white font-semibold rounded-xl text-lg w-full flex items-center justify-center">
                 {loading ?
                     <motion.div
                         animate={{ rotate: 360 }}

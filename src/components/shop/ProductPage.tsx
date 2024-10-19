@@ -1,8 +1,7 @@
 import { DotIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { ShieldCheckIcon, ArrowRightIcon, Package, HeadsetIcon } from "lucide-react"
-import { product } from "@/types/home"
+import { product } from "@/types/shop"
 import SmallCard from "../about/SmallCard"
 import { smallCardInfo } from "@/data/aboutData"
 import { featureCardInfo } from "@/data/shopData"
@@ -11,6 +10,7 @@ import { reviewCardInfo } from "@/data/shopData"
 import RelatedCard from "./RelatedCard"
 import { FeatureCard } from "./FeatureCard"
 import CoverImage from "./CoverImage"
+import ProductInfo from "./ProductInfo"
 
 interface productPage {
     currentProduct: product,
@@ -24,7 +24,7 @@ const getRelatedProducts = (currentProduct: product, allProducts: product[], cou
         const otherProducts = allProducts.filter(product => product.id !== currentProduct.id && product.category !== currentProduct.category)
         relatedProducts.push(...otherProducts)
     }
-    return relatedProducts
+    return relatedProducts.slice(0, count)
 }
 
 export default function ProductPage({ currentProduct, allProducts }: productPage) {
@@ -86,24 +86,7 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                                 </div>
                             </div>
                             <div className="flex flex-col justify-end flex-1">
-                                <div className="flex flex-col gap-4">
-                                    {[
-                                        { icon: ShieldCheckIcon, text: 'Warranty' },
-                                        { icon: Package, text: 'Shipping & delivery' },
-                                        { icon: HeadsetIcon, text: 'Support' },
-                                    ].map((item, index) => (
-                                        <div key={index}>
-                                            <div className="flex gap-2 justify-between py-4">
-                                                <div className="flex gap-2 items-center text-black">
-                                                    <item.icon className="w-6 h-6" />
-                                                    <p className="text-sm md:text-base">{item.text}</p>
-                                                </div>
-                                                <ArrowRightIcon className="w-6 h-6 text-black" />
-                                            </div>
-                                            {index < 2 && <div className="flex bg-[#e6e6e6] h-[1px] w-full"></div>}
-                                        </div>
-                                    ))}
-                                </div>
+                                <ProductInfo />
                             </div>
                         </div>
                     </div>

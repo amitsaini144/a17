@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion"
-import { product } from "@/types/home";
+import { product } from "@/types/shop";
 
 export default function Product({ label, slug, image, price }: product) {
     return (

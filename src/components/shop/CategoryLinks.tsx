@@ -2,14 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-const categories = [
-    { name: 'All products', slug: '' },
-    { name: 'Headphones', slug: 'headphone' },
-    { name: 'Displays', slug: 'monitor' },
-    { name: 'Watches', slug: 'smartwatch' },
-    { name: 'Phones', slug: 'phone' },
-];
+import { categories } from "@/data/shopData";
 
 export default function CategoryLinks() {
     const currentCategory = usePathname().split('/')[2];

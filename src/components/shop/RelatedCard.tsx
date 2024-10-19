@@ -1,5 +1,5 @@
 "use client"
-import { product } from "@/types/home";
+import { product } from "@/types/shop";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
