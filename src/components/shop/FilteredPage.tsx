@@ -1,8 +1,7 @@
-
-import { Search } from "lucide-react"
 import Product from "@/components/shop/Product"
 import { product } from "@/types/shop"
 import CategoryLinks from "./CategoryLinks"
+import SearchButton from "./SearchButton"
 
 export default function FilteredPage({ products }: { products: product[] }) {
     return (
@@ -16,9 +15,7 @@ export default function FilteredPage({ products }: { products: product[] }) {
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-row-reverse md:flex-row justify-between gap-4">
                             <CategoryLinks />
-                            <button>
-                                <Search className="text-[#4a4a4a]" />
-                            </button>
+                            <SearchButton />
                         </div>
 
                         <div className="grid gris-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-6">
