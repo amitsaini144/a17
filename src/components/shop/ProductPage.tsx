@@ -43,7 +43,7 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                         <span className="text-black">{currentProduct.label}</span>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 w-full">
-                        <div className="flex flex-col-reverse md:flex-row gap-4">
+                        <div className="flex flex-col-reverse md:flex-row gap-4 w-full">
                             <div className="flex md:flex-col justify-between md:justify-around gap-2 md:gap-3">
                                 {[0, 1, 2].map((index) => (
                                     <Image
@@ -70,7 +70,7 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                                     className="rounded-3xl object-cover w-full h-[500px] md:w-[930px] md:h-[744px] xl:h-full xl:w-full" />
                             </div>
                         </div>
-                        <div className="flex flex-col gap-6 flex-1">
+                        <div className="flex flex-col gap-6 w-full">
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-[32px] xl:text-[40px] text-black leading-tight w-fit">{currentProduct.label}</h1>
                                 <p className="text-sm md:text-base text-[#1f1f1f]">{currentProduct.description}</p>

@@ -10,7 +10,7 @@ export default function Product({ label, slug, image, price }: product) {
         <motion.div
             whileHover={{ scale: 1.02 }}
         >
-            <Link href={`/shop/${slug}`} className="flex flex-col gap-4 w-full xl:w-[400px]">
+            <Link href={`/shop/${slug}`} className="flex flex-col gap-4 w-full">
                 <div className="rounded-3xl w-full">
                     <Image
                         src={image}
