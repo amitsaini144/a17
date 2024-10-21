@@ -4,6 +4,7 @@ import { XIcon } from "lucide-react"
 import { useEffect, useRef } from "react"
 import SupportForm from "./SupportForm"
 import { ModalProps } from "@/types/shop";
+import { motion } from "framer-motion";
 
 export const Modal = ({ isOpen, onClose, Icon, title, description }: ModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,12 @@ export const Modal = ({ isOpen, onClose, Icon, title, description }: ModalProps)
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-end md:items-center justify-center z-50">
-            <div ref={modalRef} className="flex flex-col gap-8 bg-white w-full md:max-w-3xl rounded-t-3xl md:rounded-3xl">
+            <motion.div
+                initial={{ y: "100vh", opacity: 0 }}
+                animate={{ y: "0vh", opacity: 1 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                ref={modalRef}
+                className="flex flex-col gap-8 bg-white w-full md:max-w-3xl rounded-t-3xl md:rounded-3xl">
                 <div className="flex flex-col px-6 pt-6 gap-6">
                     <div className="flex justify-between items-center text-black">
                         <div className="flex gap-3 text-black items-center">
@@ -55,7 +61,7 @@ export const Modal = ({ isOpen, onClose, Icon, title, description }: ModalProps)
                         </>
                     }
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 };

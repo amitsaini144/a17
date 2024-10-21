@@ -58,7 +58,12 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-start justify-center z-50 sm:pt-32">
-            <div ref={searchBarRef} className="flex flex-col px-5 py-3 bg-white sm:rounded-2xl gap-4 justify-start items-center w-full sm:w-fit max-h-[500px] ">
+            <motion.div
+                initial={{ y: "-100vh", opacity: 0 }}
+                animate={{ y: "0vh", opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                ref={searchBarRef}
+                className="flex flex-col px-5 py-3 bg-white sm:rounded-2xl gap-4 justify-start items-center w-full sm:w-fit max-h-[500px] ">
                 <div className="flex gap-2 items-center">
                     <Search className="text-[#7f7f7f] w-5 h-5" />
                     <input
@@ -100,7 +105,7 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </motion.div>
         </div>
     )
 }
