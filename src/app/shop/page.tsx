@@ -7,7 +7,7 @@ export default function Shop() {
 
     return (
         <div className="flex flex-col items-center w-full min-w-[320px] bg-white">
-            <div className="w-full max-w-[1349px]">
+            <div className="w-full max-w-8xl">
                 <div className="flex flex-col px-4 md:px-6 xl:px-10 pt-[120px] md:pt-40 pb-0 gap-10">
                     <div className="flex flex-col gap-2">
                         <h1 className="text-[40px] xl:text-[64px] text-black font-medium">Shop</h1>

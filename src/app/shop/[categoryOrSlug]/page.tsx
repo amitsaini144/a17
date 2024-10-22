@@ -40,7 +40,7 @@ export default function HandleSlug({ params }: { params: { categoryOrSlug: strin
         case 'notFound':
             return (
                 <div className="flex flex-col items-center w-full min-w-[320px]">
-                    <div className="w-full max-w-[1349px]">
+                    <div className="w-full max-w-8xl">
                         <h1 className='text-[40px] text-black font-medium leading-tight py-32 text-center'>
                             Page not found: {categoryOrSlug}
                         </h1>

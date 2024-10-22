@@ -14,7 +14,7 @@ export default function BlogPost({ post, params }: { post: article, params: { sl
 
     return (
         <div className="flex flex-col items-center w-full min-w-[320px]">
-            <div className="w-full max-w-[1349px]">
+            <div className="w-full max-w-8xl">
                 <div className="w-full flex flex-col gap-12 px-4 md:px-6 xl:px-10 pt-32">
                     <div className="flex flex-col md:text-center md:justify-center gap-6">
                         <div className="flex gap-1 w-full md:justify-center items-center text-[12px] md:text-sm">

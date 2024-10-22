@@ -19,6 +19,9 @@ const config: Config = {
       fontFamily: {
         satoshi: ['var(--font-satoshi)'],
       },
+      maxWidth: {
+        '8xl': '1349px',
+      },
     },
   },
   plugins: [

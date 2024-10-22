@@ -10,7 +10,7 @@ export default function CategorySection() {
             <div className="flex flex-col gap-10">
                 <div className="flex flex-col gap-2 text-black">
                     <h2 className="text-4xl xl:text-[40px] font-medium">Browse by categories</h2>
-                    <p className=" text-[18px] xl:text-xl">Explore our diverse range of categories tailored to <br className="hidden md:block" /> meet your specific needs and interests.</p>
+                    <p className="text-lg xl:text-xl">Explore our diverse range of categories tailored to <br className="hidden md:block" /> meet your specific needs and interests.</p>
                 </div>
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">

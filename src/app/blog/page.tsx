@@ -4,7 +4,7 @@ import BlogCard from "@/components/blog/BlogCard"
 export default function Blog() {
     return (
         <div className="flex flex-col items-center w-full min-w-[320px] bg-white">
-            <div className="w-full max-w-[1349px]">
+            <div className="w-full max-w-8xl">
                 <div className="w-full flex flex-col gap-12 px-4 md:px-6 xl:px-10 pt-32 md:pt-40">
                     <div className="flex flex-col gap-6">
                         <h1 className="text-6xl text-black font-semibold">Blog</h1>

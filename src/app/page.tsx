@@ -6,7 +6,7 @@ import ArticlesSection from "@/components/homepage/ArticlesSection";
 export default function Home() {
   return (
     <div className="flex flex-col items-center w-full min-w-[320px] min-h-screen bg-white">
-      <div className="w-full max-w-[1349px]">
+      <div className="w-full max-w-8xl">
         <HeroSection />
         <Carousel />
         <CategorySection />

@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function HeroSection() {
     return (
-        <div className="w-full px-4 md:px-6 xl:px-10 pt-32 md:pt-40">
+        <section className="w-full px-4 md:px-6 xl:px-10 pt-32 md:pt-40">
             <div className="flex flex-col xl:flex-row gap-6 xl:items-end text-black">
-                <div className="flex flex-col gap-5 w-full lg:items-start">
-                    <h1 className="text-[40px] md:text-5xl xl:text-[64px] font-medium leading-tight md:leading-tight xl:leading-tight">
+                <div className="flex flex-col gap-5 w-full">
+                    <h1 className="text-[40px] md:text-5xl xl:text-[64px] font-medium md:leading-tight leading-tight">
                         Elevate your lifestyle<br className="hidden xl:inline" /> with premium essentials.
                     </h1>
                     <p className="text-lg md:text-xl leading-relaxed">
@@ -18,6 +18,6 @@ export default function HeroSection() {
                     </button>
                 </Link>
             </div>
-        </div>
+        </section>
     )
 }

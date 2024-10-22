@@ -17,7 +17,7 @@ export default function Post({ params }: { params: { slug: string } }) {
     if (!post) {
         return (
             <div className="flex flex-col items-center w-full min-w-[320px]">
-                <div className="w-full max-w-[1349px]">
+                <div className="w-full max-w-8xl">
                     <h1 className='text-[40px] text-black font-medium leading-tight py-32 text-center'>Post not found</h1>
                 </div>
             </div>

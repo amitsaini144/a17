@@ -7,7 +7,7 @@ export default function ArticlesSection() {
         <div className="w-full px-4 md:px-6 xl:px-10 pt-16 pb-6 xl:pb-16 bg-white">
             <div className="flex flex-col gap-10 justify-center">
                 <div className="flex md:flex-row flex-col text-black justify-between gap-y-6">
-                    <h2 className="text-4xl xl:text-[40px] font-medium ">Our articles and news</h2>
+                    <h2 className="text-4xl xl:text-[40px] font-medium">Our articles and news</h2>
                     <Link href="/blog" className="xl:flex-shrink-0 w-fit">
                         <button className="border border-black px-8 py-4 rounded-full text-lg">
                             Check all

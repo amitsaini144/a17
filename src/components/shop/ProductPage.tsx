@@ -33,7 +33,7 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
 
     return (
         <div className="flex flex-col items-center w-full min-w-[320px]">
-            <div className="w-full max-w-[1349px]">
+            <div className="w-full max-w-8xl">
                 <div className="w-full flex flex-col gap-6 px-4 md:px-6 xl:px-10 pt-32">
                     <div className="flex w-full items-center text-[12px] md:text-sm">
                         <Link href="/" className="w-fit text-[#7f7f7f]">Home</Link>

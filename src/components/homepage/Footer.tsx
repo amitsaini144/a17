@@ -6,12 +6,12 @@ import { MapPin } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col gap-6 w-full px-4 md:px-6 xl:px-10 pb-14 bg-white max-w-[1349px] mx-auto">
+        <footer className="flex flex-col gap-6 w-full px-4 md:px-6 xl:px-10 pb-14 bg-white max-w-8xl mx-auto">
             <div className="flex flex-col xl:flex-row gap-10 md:gap-0 bg-[#f7f7f7] rounded-3xl justify-between p-4">
                 <div className="md:p-4 md:pr-0 xl:p-10 flex flex-col md:flex-row xl:flex-col justify-between gap-4 h-fit">
                     <div className="flex flex-col gap-4 text-black">
                         <h2 className="text-2xl font-semibold">A17</h2>
-                        <p className="text-[18px]">Selling premium products, designed<br /> to elevate your everyday experience</p>
+                        <p className="text-lg">Selling premium products, designed<br /> to elevate your everyday experience</p>
                         <hr className="block md:hidden xl:block" />
                     </div>
                     <div className="flex gap-3 w-fit items-end justify-center i text-black">
@@ -33,7 +33,7 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between gap-10 md:gap-0">
                     <div className="flex gap-20 p-0 md:p-4 xl:p-10 xl:pr-20 text-[#4a4a4a]">
                         <div className="flex flex-col gap-6">
-                            <p className="text-[18px] font-medium">Pages</p>
+                            <p className="text-lg font-medium">Pages</p>
                             <div className="flex flex-col gap-4">
                                 <Link href="/">Home</Link>
                                 <Link href="/shop">Shop</Link>
@@ -42,7 +42,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <div className="flex flex-col justify-between">
-                            <p className="text-[18px] font-medium">Support</p>
+                            <p className="text-lg font-medium">Support</p>
                             <div className="flex flex-col gap-4">
                                 <Link href="/faq">FAQ</Link>
                                 <Link href="/contact">Contact</Link>
