@@ -1,45 +1,7 @@
-"use client"
-
 import Link from "next/link";
-import { shopFaq, paymentInfo, orderInfo } from "@/data/faqData";
-import FaqItem from "@/components/faq/FaqItem";
-import { useState, useEffect, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-
-const useIntersectionObserver = (ref: React.RefObject<HTMLElement>, options: IntersectionObserverInit): boolean => {
-    const [isIntersecting, setIsIntersecting] = useState(false)
-
-    useEffect(() => {
-        const currentRef = ref.current;
-        const observer = new IntersectionObserver(([entry]) => {
-            setIsIntersecting(entry.isIntersecting)
-        }, options)
-
-        if (currentRef) {
-            observer.observe(currentRef)
-        }
-
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef)
-            }
-        }
-    }, [ref, options])
-
-    return isIntersecting
-}
+import FaqSection from "@/components/faq/FaqSection";
 
 export default function Faq() {
-    const faqRef = useRef<HTMLDivElement>(null)
-    const faqEndRef = useRef<HTMLDivElement>(null)
-    useIntersectionObserver(faqRef, { threshold: 0 })
-    useIntersectionObserver(faqEndRef, { threshold: 1 })
-    const { scrollYProgress } = useScroll({
-        target: faqRef,
-        offset: ["start start", "end end"]
-    })
-
-    useTransform(scrollYProgress, [0, 0.95], ["0%", "-100%"])
 
     return (
         <div className="flex flex-col items-center w-full min-w-[320px] bg-white">
@@ -64,48 +26,8 @@ export default function Faq() {
                             Contact us
                         </Link>
                     </div>
-
                     <div className="flex h-[2px] w-full xl:w-[2px] xl:h-auto bg-[#f7f7f7]"></div>
-
-                    <motion.div
-                        ref={faqRef}
-                        className="flex flex-col gap-14 xl:gap-16 xl:w-[666px]"
-                    >
-                        <div className="flex flex-col gap-8">
-                            <h2 className="text-2xl md:text-[32px] text-black">Shopping Information</h2>
-                            <div className="flex flex-col gap-4">
-                                {shopFaq.map((faq) => (
-                                    <FaqItem
-                                        key={faq.question}
-                                        question={faq.question}
-                                        answer={faq.answer} />
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-8">
-                            <h2 className="text-2xl md:text-[32px] text-black">Payment Information</h2>
-                            <div className="flex flex-col gap-4">
-                                {paymentInfo.map((faq) => (
-                                    <FaqItem
-                                        key={faq.question}
-                                        question={faq.question}
-                                        answer={faq.answer} />
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-8">
-                            <h2 className="text-2xl md:text-[32px] text-black">Order & returns</h2>
-                            <div className="flex flex-col gap-4">
-                                {orderInfo.map((faq) => (
-                                    <FaqItem
-                                        key={faq.question}
-                                        question={faq.question}
-                                        answer={faq.answer} />
-                                ))}
-                            </div>
-                        </div>
-                        <div ref={faqEndRef} className="h-1" />
-                    </motion.div>
+                    <FaqSection />
                 </div>
             </div>
         </div>
