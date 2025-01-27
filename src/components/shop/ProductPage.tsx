@@ -77,7 +77,7 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                             </div>
                             <h2 className="text-2xl md:text-[28px] xl:text-[32px] text-black w-fit">USD {currentProduct.price}</h2>
                             <div className="flex flex-col w-full gap-4 items-center">
-                                <Link href={`/shop/${currentProduct.id}`} className="text-white bg-black text-center px-9 py-[18px] rounded-full w-full md:text-[18px]">
+                                <Link href='' className="text-white bg-black text-center px-9 py-[18px] rounded-full w-full md:text-[18px]">
                                     Buy now
                                 </Link>
                                 <div className="flex flex-col gap-1 text-center text-[#7f7f7f] text-[12px] md:text-sm w-full">
