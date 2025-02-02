@@ -6,7 +6,7 @@ import { MapPin } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col gap-6 w-full px-4 md:px-6 xl:px-10 pb-14 bg-white max-w-8xl mx-auto">
+        <footer className="flex flex-col gap-6 w-full px-4 md:px-6 xl:px-10 pb-14 bg-white max-w-8xl mx-auto ">
             <div className="flex flex-col xl:flex-row gap-10 md:gap-0 bg-[#f7f7f7] rounded-3xl justify-between p-4">
                 <div className="md:p-4 md:pr-0 xl:p-10 flex flex-col md:flex-row xl:flex-col justify-between gap-4 h-fit">
                     <div className="flex flex-col gap-4 text-black">
