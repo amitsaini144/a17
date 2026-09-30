@@ -9,6 +9,7 @@ from sqlalchemy.pool import NullPool
 
 from app import models  # noqa: F401  (registers all models on Base.metadata)
 from app.core.database import Base, get_db_session
+from app.core.timing import instrument_engine
 from app.main import app
 
 TEST_DATABASE_URL = os.environ.get(
@@ -24,6 +25,7 @@ async def engine() -> AsyncIterator[AsyncEngine]:
         pytest.exit(f"Refusing to run tests against '{database}': name must end with '_test'.")
 
     engine = create_async_engine(TEST_DATABASE_URL, poolclass=NullPool)
+    instrument_engine(engine)
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)

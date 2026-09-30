@@ -10,6 +10,7 @@ from app.core.config import get_settings
 from app.core.database import engine
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import configure_logging
+from app.core.timing import ServerTimingMiddleware
 
 logger = structlog.get_logger()
 
@@ -42,6 +43,9 @@ def create_app() -> FastAPI:
             allow_methods=["*"],
             allow_headers=["*"],
         )
+
+    # Added last so it wraps everything else and its total covers the whole request.
+    app.add_middleware(ServerTimingMiddleware)
 
     register_exception_handlers(app)
     app.include_router(api_router, prefix=settings.api_v1_prefix)
