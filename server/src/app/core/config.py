@@ -18,6 +18,10 @@ class Settings(BaseSettings):
     database_url: PostgresDsn
     cors_origins: list[str] = []
 
+    # Public base URL for stored assets (CloudFront in production). Empty = root-relative
+    # URLs like `/images/...`, which the Next.js app serves from `ui/public` in local dev.
+    assets_base_url: str = ""
+
     @property
     def is_production(self) -> bool:
         return self.environment == "production"

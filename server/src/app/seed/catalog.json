@@ -1,0 +1,334 @@
+{
+  "categories": [
+    {
+      "slug": "headphone",
+      "name": "Headphones",
+      "cover_image_key": "images/headphone/headphonecover.png",
+      "features": [
+        {
+          "title": "Sound Superiority, Anywhere",
+          "description": "Experience top-tier audio quality. Whether you're into rock or classical, these buds deliver exceptional sound across all genres.",
+          "image_key": "images/headphone/headphoneFeature1.png"
+        },
+        {
+          "title": "Power on the Move",
+          "description": "Stay charged with portable capsule, giving you 4 full charges for your headphones wherever you roam.",
+          "image_key": "images/headphone/headphoneFeature2.png"
+        },
+        {
+          "title": "Tailored Comfort",
+          "description": "With 6 tips in varying sizes, our headphones ensures a perfect fit for every ear, guaranteeing comfort during extended wear.",
+          "image_key": "images/headphone/headphoneFeature3.png"
+        }
+      ]
+    },
+    {
+      "slug": "monitor",
+      "name": "Displays",
+      "cover_image_key": "images/monitor/monitorcover.png",
+      "features": [
+        {
+          "title": "Crystal Clear Visuals",
+          "description": "Experience stunning clarity and vibrant colors on the Apple Display SE 3, bringing your content to life like never before.",
+          "image_key": "images/monitor/monitorFeature1.png"
+        },
+        {
+          "title": "Seamless Connectivity",
+          "description": "Effortlessly connect to your Mac, iPad, or other devices with Thunderbolt and USB-C ports for enhanced productivity.",
+          "image_key": "images/monitor/monitorFeature2.png"
+        },
+        {
+          "title": "Sleek Design",
+          "description": "With its slim profile and edge-to-edge glass, the eDisplay adds a modern touch to any workspace while maximizing your viewing area.",
+          "image_key": "images/monitor/monitorFeature3.png"
+        }
+      ]
+    },
+    {
+      "slug": "smartwatch",
+      "name": "Watches",
+      "cover_image_key": "images/watch/watchcover.png",
+      "features": [
+        {
+          "title": "Fitness Tracking",
+          "description": "Monitor your health and fitness goals with precision, tracking your activity, heart rate, and more.",
+          "image_key": "images/watch/watchFeature1.png"
+        },
+        {
+          "title": "Versatile Design",
+          "description": "Elevate your look with a sleek and modern design that seamlessly transitions from the gym to the boardroom.",
+          "image_key": "images/watch/watchFeature2.png"
+        },
+        {
+          "title": "Effortless Connectivity",
+          "description": "Seamlessly stay in touch with your world, receiving notifications and calls directly on your wrist.",
+          "image_key": "images/watch/watchFeature3.png"
+        }
+      ]
+    },
+    {
+      "slug": "phone",
+      "name": "Phones",
+      "cover_image_key": "images/phone/phonecover.png",
+      "features": [
+        {
+          "title": "Powerful Performance",
+          "description": "Experience lightning-fast processing speeds and smooth multitasking, empowering you to tackle any task with ease and efficiency.",
+          "image_key": "images/phone/phoneFeature1.png"
+        },
+        {
+          "title": "Innovative Features",
+          "description": "Explore a wealth of innovative features and apps designed to streamline your daily life, from augmented reality experiences to voice-activated assistants.",
+          "image_key": "images/phone/phoneFeature2.png"
+        },
+        {
+          "title": "Sleek Design",
+          "description": "Make a statement with the iPhone's sleek and elegant design, crafted from premium materials for a sophisticated look and feel.",
+          "image_key": "images/phone/phoneFeature3.png"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "slug": "edisplay-xg",
+      "name": "eDisplay XG",
+      "description": "Upgrade your workspace with the eDisplay XS and take your productivity to new heights.",
+      "price_cents": 64999,
+      "currency": "USD",
+      "category": "monitor",
+      "image_key": "images/monitor/displayXG.png",
+      "gallery_keys": [
+        "images/monitor/displayXG1.png",
+        "images/monitor/displayXG2.png",
+        "images/monitor/displayXG3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "headphones-or-27n",
+      "name": "Headphones or-27n",
+      "description": "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
+      "price_cents": 9799,
+      "currency": "USD",
+      "category": "headphone",
+      "image_key": "images/headphone/orangeHeadphone.png",
+      "gallery_keys": [
+        "images/headphone/orangeHeadphone1.png",
+        "images/headphone/orangeHeadphone2.png",
+        "images/headphone/orangeHeadphone3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "iphone-15-black",
+      "name": "iPhone 15 Black",
+      "description": "Experience the pinnacle of technology and design with iPhone. Seamlessly integrated features, stunning display, and powerful performance redefine what's possible in the world of smartphones.",
+      "price_cents": 79999,
+      "currency": "USD",
+      "category": "phone",
+      "image_key": "images/phone/iphoneBlack.png",
+      "gallery_keys": [
+        "images/phone/iphoneBlack1.png",
+        "images/phone/iphoneBlack2.png",
+        "images/phone/iphoneBlack3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "headphones-w-96c",
+      "name": "Headphones w-96c",
+      "description": "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
+      "price_cents": 12999,
+      "currency": "USD",
+      "category": "headphone",
+      "image_key": "images/headphone/headphone-96c.png",
+      "gallery_keys": [
+        "images/headphone/headphone-96c1.png",
+        "images/headphone/headphone-96c2.png",
+        "images/headphone/headphone-96c3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "edisplay-xe",
+      "name": "eDisplay XE",
+      "description": "Upgrade your workspace with the eDisplay XE and take your productivity to new heights.",
+      "price_cents": 64999,
+      "currency": "USD",
+      "category": "monitor",
+      "image_key": "images/monitor/displayXE.png",
+      "gallery_keys": [
+        "images/monitor/displayXE1.png",
+        "images/monitor/displayXE2.png",
+        "images/monitor/displayXE3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "headphones-z-23c",
+      "name": "Headphones z-23c",
+      "description": "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
+      "price_cents": 14999,
+      "currency": "USD",
+      "category": "headphone",
+      "image_key": "images/headphone/headphoneBlack.png",
+      "gallery_keys": [
+        "images/headphone/headphoneBlack1.png",
+        "images/headphone/headphoneBlack2.png",
+        "images/headphone/headphoneBlack3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "iphone-15-red",
+      "name": "iPhone 15 Red",
+      "description": "Experience the pinnacle of technology and design with iPhone. Seamlessly integrated features, stunning display, and powerful performance redefine what's possible in the world of smartphones.",
+      "price_cents": 79999,
+      "currency": "USD",
+      "category": "phone",
+      "image_key": "images/phone/iphoneRed.png",
+      "gallery_keys": [
+        "images/phone/iphoneRed1.png",
+        "images/phone/iphoneRed2.png",
+        "images/phone/iphoneRed3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "iphone-15-white",
+      "name": "iPhone 15 White",
+      "description": "Experience the pinnacle of technology and design with iPhone. Seamlessly integrated features, stunning display, and powerful performance redefine what's possible in the world of smartphones.",
+      "price_cents": 79999,
+      "currency": "USD",
+      "category": "phone",
+      "image_key": "images/phone/iphoneWhite.png",
+      "gallery_keys": [
+        "images/phone/iphoneWhite1.png",
+        "images/phone/iphoneWhite2.png",
+        "images/phone/iphoneWhite3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "ewatch-sf-3-black",
+      "name": "eWatch SF 3 Black",
+      "description": "Stay connected, organized, and motivated with eWatch. Enjoy seamless connectivity, comprehensive fitness tracking, stylish design, and convenient smart features—all in one sleek package.",
+      "price_cents": 31999,
+      "currency": "USD",
+      "category": "smartwatch",
+      "image_key": "images/watch/watchBlack.png",
+      "gallery_keys": [
+        "images/watch/watchBlack1.png",
+        "images/watch/watchBlack2.png",
+        "images/watch/watchBlack3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "ewatch-sf-3-white",
+      "name": "eWatch SF 3 White",
+      "description": "Stay connected, organized, and motivated with eWatch. Enjoy seamless connectivity, comprehensive fitness tracking, stylish design, and convenient smart features—all in one sleek package.",
+      "price_cents": 31999,
+      "currency": "USD",
+      "category": "smartwatch",
+      "image_key": "images/watch/watchWhite.png",
+      "gallery_keys": [
+        "images/watch/watchBlack1.png",
+        "images/watch/watchBlack2.png",
+        "images/watch/watchBlack3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "edisplay-xs",
+      "name": "eDisplay XS",
+      "description": "Upgrade your workspace with the eDisplay XE and take your productivity to new heights.",
+      "price_cents": 64999,
+      "currency": "USD",
+      "category": "monitor",
+      "image_key": "images/monitor/displayXS.png",
+      "gallery_keys": [
+        "images/monitor/displayXS1.png",
+        "images/monitor/displayXS2.png",
+        "images/monitor/displayXS3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "headphones-x-28m",
+      "name": "Headphones x-28m",
+      "description": "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
+      "price_cents": 14999,
+      "currency": "USD",
+      "category": "headphone",
+      "image_key": "images/headphone/headphone.png",
+      "gallery_keys": [
+        "images/headphone/headphone1.png",
+        "images/headphone/headphone2.png",
+        "images/headphone/headphone3.png"
+      ],
+      "is_featured": true
+    },
+    {
+      "slug": "headphone-e-11g",
+      "name": "Headphone e-11g",
+      "description": "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
+      "price_cents": 9799,
+      "currency": "USD",
+      "category": "headphone",
+      "image_key": "images/headphone/headphoneGreen.png",
+      "gallery_keys": [
+        "images/headphone/headphoneGreen1.png",
+        "images/headphone/headphoneGreen2.png",
+        "images/headphone/headphoneGreen3.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "headphone-w-99",
+      "name": "Headphone w-99",
+      "description": "Whether you're on the move or powering through your workout, these headphones are designed to keep up with your active lifestyle effortlessly.",
+      "price_cents": 12999,
+      "currency": "USD",
+      "category": "headphone",
+      "image_key": "images/headphone/headphones-99.png",
+      "gallery_keys": [
+        "images/headphone/headphones-991.png",
+        "images/headphone/headphones-992.png",
+        "images/headphone/headphones-993.png"
+      ],
+      "is_featured": false
+    },
+    {
+      "slug": "ewatch-sf-4",
+      "name": "eWatch SF-4",
+      "description": "Stay connected, organized, and motivated with eWatch. Enjoy seamless connectivity, comprehensive fitness tracking, stylish design, and convenient smart features—all in one sleek package.",
+      "price_cents": 34999,
+      "currency": "USD",
+      "category": "smartwatch",
+      "image_key": "images/watch/eWatch.png",
+      "gallery_keys": [
+        "images/watch/watchBlack1.png",
+        "images/watch/watchBlack2.png",
+        "images/watch/watchBlack3.png"
+      ],
+      "is_featured": true
+    },
+    {
+      "slug": "edisplay-xr",
+      "name": "eDisplay XR",
+      "description": "Upgrade your workspace with the eDisplay XE and take your productivity to new heights.",
+      "price_cents": 64999,
+      "currency": "USD",
+      "category": "monitor",
+      "image_key": "images/monitor/eDisplay.png",
+      "gallery_keys": [
+        "images/monitor/eDisplay1.png",
+        "images/monitor/eDisplay2.png",
+        "images/monitor/eDisplay3.png"
+      ],
+      "is_featured": true
+    }
+  ]
+}
