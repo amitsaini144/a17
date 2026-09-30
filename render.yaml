@@ -1,0 +1,22 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: a17-api
+    runtime: docker
+    plan: free
+    # Pick the region closest to your Neon database to keep query latency low.
+    region: oregon
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: ./server
+    # Fails the deploy (old version keeps serving) if the new one can't reach the database.
+    healthCheckPath: /api/v1/health/ready
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - server/**
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      # Neon connection string, pasted as-is. Secret: set in the dashboard, never committed.
+      - key: DATABASE_URL
+        sync: false

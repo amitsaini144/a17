@@ -56,3 +56,15 @@ yarn dev
 ```
 
 On Windows, if port 3000 fails with `EACCES`, it is reserved by the OS: use `yarn dev -p 3500`.
+
+## Deployment
+
+| Part | Host | Config |
+|---|---|---|
+| Frontend | Vercel (root directory `ui`, Node 24) | env `API_URL` = backend URL |
+| Backend | Render (Docker, free plan) | [`render.yaml`](render.yaml); env `DATABASE_URL` (secret) |
+| Database | Neon Postgres | connection string pasted as-is into `DATABASE_URL` |
+
+The backend container runs `alembic upgrade head` on every start, so deploys apply migrations
+automatically. Render's health check (`/api/v1/health/ready`) keeps a new version from going live
+if it can't reach the database.

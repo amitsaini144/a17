@@ -1,8 +1,9 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import PostgresDsn
+from pydantic import PostgresDsn, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from sqlalchemy.engine import make_url
 
 
 class Settings(BaseSettings):
@@ -21,6 +22,26 @@ class Settings(BaseSettings):
     # Public base URL for stored assets (CloudFront in production). Empty = root-relative
     # URLs like `/images/...`, which the Next.js app serves from `ui/public` in local dev.
     assets_base_url: str = ""
+
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def _to_asyncpg_url(cls, value: object) -> object:
+        """Accept provider URLs as copied (e.g. Neon's `postgresql://...?sslmode=require`).
+
+        asyncpg needs the `postgresql+asyncpg` scheme and takes `ssl` rather than libpq's
+        `sslmode`; it doesn't support `channel_binding`.
+        """
+        if not isinstance(value, str):
+            return value
+        url = make_url(value)
+        if url.drivername in {"postgres", "postgresql"}:
+            url = url.set(drivername="postgresql+asyncpg")
+        query = dict(url.query)
+        query.pop("channel_binding", None)
+        sslmode = query.pop("sslmode", None)
+        if sslmode is not None and "ssl" not in query:
+            query["ssl"] = sslmode
+        return url.set(query=query).render_as_string(hide_password=False)
 
     @property
     def is_production(self) -> bool:
