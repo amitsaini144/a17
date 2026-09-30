@@ -18,6 +18,11 @@ class NotFoundError(AppError):
     code = "not_found"
 
 
+class DatabaseUnavailableError(AppError):
+    status_code = 503
+    code = "database_unavailable"
+
+
 async def _handle_app_error(_: Request, exc: Exception) -> JSONResponse:
     assert isinstance(exc, AppError)  # noqa: S101 - narrowed by registration below
     return JSONResponse(
