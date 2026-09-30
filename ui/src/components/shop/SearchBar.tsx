@@ -1,6 +1,6 @@
 "use client"
 
-import { Search } from "lucide-react";
+import { Loader2, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { fetchProducts, type ProductSummary } from "@/lib/api/client";
@@ -107,7 +107,8 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
                         >
                             <div ref={listRef}>
                                 {status === "loading" && filteredProducts.length === 0 ? (
-                                    <div className="flex items-center justify-center w-full py-2 text-sm text-[#7e7e7e]">
+                                    <div role="status" className="flex items-center justify-center gap-2 w-full py-2 text-sm text-[#7e7e7e]">
+                                        <Loader2 aria-hidden className="w-4 h-4 animate-spin" />
                                         Searching…
                                     </div>
                                 ) : status === "error" ? (

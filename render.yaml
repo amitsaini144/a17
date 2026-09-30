@@ -4,8 +4,9 @@ services:
     name: a17-api
     runtime: docker
     plan: free
-    # Pick the region closest to your Neon database to keep query latency low.
-    region: oregon
+    # Must match the Neon project's region (AWS ap-southeast-1): every query pays the round trip.
+    # Vercel functions (ui/vercel.json) run in Singapore too, since they proxy /api/* here.
+    region: singapore
     dockerfilePath: ./server/Dockerfile
     dockerContext: ./server
     # Fails the deploy (old version keeps serving) if the new one can't reach the database.
