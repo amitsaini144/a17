@@ -1,0 +1,65 @@
+name: server
+
+on:
+  push:
+    branches: [main]
+    paths: ["server/**", ".github/workflows/server.yml"]
+  pull_request:
+    paths: ["server/**", ".github/workflows/server.yml"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: a17
+          POSTGRES_PASSWORD: a17
+          POSTGRES_DB: a17
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U a17 -d a17"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+
+    env:
+      ENVIRONMENT: test
+      DATABASE_URL: postgresql+asyncpg://a17:a17@localhost:5432/a17
+      TEST_DATABASE_URL: postgresql+asyncpg://a17:a17@localhost:5432/a17_test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: server/uv.lock
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Lint
+        run: uv run ruff check . && uv run ruff format --check .
+
+      - name: Type-check
+        run: uv run mypy src
+
+      - name: Migrations apply cleanly and match the models
+        run: uv run alembic upgrade head && uv run alembic check
+
+      - name: Create test database
+        run: PGPASSWORD=a17 psql -h localhost -U a17 -d a17 -c "CREATE DATABASE a17_test"
+
+      - name: Test
+        run: uv run pytest

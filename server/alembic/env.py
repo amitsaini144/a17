@@ -6,6 +6,7 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
+from app import models  # noqa: F401  (registers all models on Base.metadata)
 from app.core.config import get_settings
 from app.core.database import Base
 
@@ -21,7 +22,7 @@ if config.config_file_name is not None:
 # Single source of truth for the DB URL: app settings (escape % for configparser).
 config.set_main_option("sqlalchemy.url", str(get_settings().database_url).replace("%", "%%"))
 
-# Import feature models in app/models.py (once they exist) so autogenerate sees them.
+# All models are registered via `app.models` (imported above).
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
