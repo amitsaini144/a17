@@ -1,9 +1,9 @@
 import Product from "@/components/shop/Product"
-import { product } from "@/types/shop"
+import type { Category, ProductSummary } from "@/lib/api/client"
 import CategoryLinks from "./CategoryLinks"
 import SearchButton from "./SearchButton"
 
-export default function FilteredPage({ products }: { products: product[] }) {
+export default function FilteredPage({ products, categories }: { products: ProductSummary[], categories: Category[] }) {
     return (
         <div className="flex flex-col items-center w-full min-w-[320px] bg-white">
             <div className="w-full max-w-8xl">
@@ -14,13 +14,13 @@ export default function FilteredPage({ products }: { products: product[] }) {
                     </div>
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-row-reverse md:flex-row justify-between gap-4">
-                            <CategoryLinks />
+                            <CategoryLinks categories={categories} />
                             <SearchButton />
                         </div>
 
                         <div className="grid gris-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-6">
                             {products.map((product) => (
-                                <div key={product.id}>
+                                <div key={product.slug}>
                                     <Product {...product} />
                                 </div>
                             ))}

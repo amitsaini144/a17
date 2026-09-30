@@ -1,10 +1,10 @@
 "use client"
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react";
 
-export default function CoverImage({ cover, label, maxScale = 1.3, scrollThreshold = 0.4 }: { cover: StaticImageData, label: string, maxScale?: number, scrollThreshold?: number }) {
+export default function CoverImage({ cover, label, maxScale = 1.3, scrollThreshold = 0.4 }: { cover: string, label: string, maxScale?: number, scrollThreshold?: number }) {
 
     const ref = useRef<HTMLDivElement>(null)
 
@@ -29,7 +29,6 @@ export default function CoverImage({ cover, label, maxScale = 1.3, scrollThresho
                         fill
                         quality={100}
                         priority
-                        placeholder="blur"
                         className="object-cover w-full h-full" />
                 </motion.div>
             </div>

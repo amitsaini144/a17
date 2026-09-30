@@ -3,6 +3,9 @@ import CategorySection from "@/components/homepage/CategorySection";
 import HeroSection from "@/components/homepage/HeroSection";
 import ArticlesSection from "@/components/homepage/ArticlesSection";
 
+// Rendered per request: catalog data must be current, and builds must not depend on the API.
+export const dynamic = "force-dynamic"
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center w-full min-w-[320px] min-h-screen bg-white">
