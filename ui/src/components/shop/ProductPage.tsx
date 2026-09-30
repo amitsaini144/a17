@@ -1,10 +1,10 @@
 import { DotIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { product } from "@/types/shop"
+import type { CategoryFeature, ProductDetail, ProductSummary } from "@/lib/api/client"
+import { formatPrice } from "@/lib/format"
 import SmallCard from "../about/SmallCard"
 import { smallCardInfo } from "@/data/aboutData"
-import { featureCardInfo } from "@/data/shopData"
 import ReviewCard from "./ReviewCard"
 import { reviewCardInfo } from "@/data/shopData"
 import RelatedCard from "./RelatedCard"
@@ -12,24 +12,13 @@ import { FeatureCard } from "./FeatureCard"
 import CoverImage from "./CoverImage"
 import ProductInfo from "./ProductInfo"
 
-interface productPage {
-    currentProduct: product,
-    allProducts: product[],
+interface ProductPageProps {
+    product: ProductDetail,
+    features: CategoryFeature[],
+    related: ProductSummary[],
 }
 
-const getRelatedProducts = (currentProduct: product, allProducts: product[], count: number = 3): product[] => {
-    const relatedProducts = allProducts.filter(product => product.id !== currentProduct.id && product.category === currentProduct.category)
-
-    if (relatedProducts.length < count) {
-        const otherProducts = allProducts.filter(product => product.id !== currentProduct.id && product.category !== currentProduct.category)
-        relatedProducts.push(...otherProducts)
-    }
-    return relatedProducts.slice(0, count)
-}
-
-export default function ProductPage({ currentProduct, allProducts }: productPage) {
-    const relatedProducts = getRelatedProducts(currentProduct, allProducts);
-    const currentFeatureCards = featureCardInfo.filter(card => card.category === currentProduct.category)
+export default function ProductPage({ product, features, related }: ProductPageProps) {
 
     return (
         <div className="flex flex-col items-center w-full min-w-[320px]">
@@ -40,42 +29,40 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                         <DotIcon className="w-4 h-4 text-[#bebebe]" />
                         <Link href="/shop" className="text-[#7f7f7f]">Shop</Link>
                         <DotIcon className="w-4 h-4 text-[#bebebe]" />
-                        <span className="text-black">{currentProduct.label}</span>
+                        <span className="text-black">{product.name}</span>
                     </div>
                     <div className="flex flex-col xl:flex-row gap-10 w-full">
                         <div className="flex flex-col-reverse md:flex-row gap-4 w-full">
                             <div className="flex md:flex-col justify-between md:justify-around gap-2 md:gap-3">
-                                {[0, 1, 2].map((index) => (
+                                {product.gallery_urls.map((url, index) => (
                                     <Image
-                                        key={index}
-                                        src={currentProduct.subimages[index]}
-                                        alt={currentProduct.label}
+                                        key={url}
+                                        src={url}
+                                        alt={`${product.name} view ${index + 1}`}
                                         width={180}
                                         height={240}
                                         quality={90}
                                         loading="lazy"
-                                        placeholder="blur"
                                         className="rounded-2xl object-cover min-w-[145px] w-1/3 h-[150px] md:w-[200px] md:h-[240px] xl:h-[180px]" />
                                 ))}
                             </div>
                             <div className="xl:h-full">
                                 <Image
-                                    src={currentProduct.image}
-                                    alt={currentProduct.label}
+                                    src={product.image_url}
+                                    alt={product.name}
                                     width={485}
                                     height={600}
                                     quality={90}
                                     priority
-                                    placeholder="blur"
                                     className="rounded-3xl object-cover w-full h-[500px] md:w-[930px] md:h-[744px] xl:h-full xl:w-full" />
                             </div>
                         </div>
                         <div className="flex flex-col gap-6 w-full">
                             <div className="flex flex-col gap-2">
-                                <h1 className="text-[32px] xl:text-[40px] text-black leading-tight w-fit">{currentProduct.label}</h1>
-                                <p className="text-sm md:text-base text-[#1f1f1f]">{currentProduct.description}</p>
+                                <h1 className="text-[32px] xl:text-[40px] text-black leading-tight w-fit">{product.name}</h1>
+                                <p className="text-sm md:text-base text-[#1f1f1f]">{product.description}</p>
                             </div>
-                            <h2 className="text-2xl md:text-[28px] xl:text-[32px] text-black w-fit">USD {currentProduct.price}</h2>
+                            <h2 className="text-2xl md:text-[28px] xl:text-[32px] text-black w-fit">{formatPrice(product.price_cents, product.currency)}</h2>
                             <div className="flex flex-col w-full gap-4 items-center">
                                 <Link href='' className="text-white bg-black text-center px-9 py-[18px] rounded-full w-full md:text-[18px]">
                                     Buy now
@@ -99,12 +86,12 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                             ))}
                         </div>
                     </div>
-                    <CoverImage cover={currentProduct.cover} label={currentProduct.label} />
+                    <CoverImage cover={product.category.cover_image_url} label={product.category.name} />
                 </div>
                 <div className="flex px-4 py-6 md:px-6 xl:px-10 md:pb-[60px] md:pt-6">
                     <div className="flex flex-col xl:flex-row gap-10 xl:gap-6 w-full">
-                        {currentFeatureCards.map((card) => (
-                            <FeatureCard key={card.id} card={card} />
+                        {features.map((card) => (
+                            <FeatureCard key={card.title} card={card} />
                         ))}
                     </div>
                 </div>
@@ -125,9 +112,9 @@ export default function ProductPage({ currentProduct, allProducts }: productPage
                     <div className='flex flex-col gap-10 relative w-full'>
                         <h2 className='text-[40px] text-black font-medium leading-tight'>Related Products</h2>
                         <div className="flex overflow-x-auto scrollbar-hide gap-6 xl:gap-8">
-                            {relatedProducts.map((product) => (
-                                <div className="flex-shrink-0" key={product.id}>
-                                    <RelatedCard {...product} />
+                            {related.map((relatedProduct) => (
+                                <div className="flex-shrink-0" key={relatedProduct.slug}>
+                                    <RelatedCard {...relatedProduct} />
                                 </div>
                             ))}
                         </div>

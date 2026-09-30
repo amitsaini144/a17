@@ -2,16 +2,21 @@
 
 import { Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { shopProducts } from "@/data/shopData";
-import { product } from "@/types/shop";
 import Link from "next/link";
+import { fetchProducts, type ProductSummary } from "@/lib/api/client";
 import { motion, AnimatePresence } from "framer-motion";
+
+const SEARCH_DEBOUNCE_MS = 250;
+const MAX_RESULTS = 10;
+
+type SearchStatus = "idle" | "loading" | "done" | "error";
 
 export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
     const searchBarRef = useRef<HTMLDivElement>(null);
     const listRef = useRef<HTMLDivElement>(null);
-    const [filteredProducts, setFilteredProducts] = useState<product[]>([]);
+    const [filteredProducts, setFilteredProducts] = useState<ProductSummary[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [status, setStatus] = useState<SearchStatus>("idle");
     const [listHeight, setListHeight] = useState<number>(0);
 
     useEffect(() => {
@@ -27,6 +32,7 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
         } else {
             setSearchTerm("");
             setFilteredProducts([]);
+            setStatus("idle");
         }
 
         return () => {
@@ -35,24 +41,38 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
         };
     }, [isOpen, onClose]);
 
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newSearchTerm = e.target.value
-        setSearchTerm(newSearchTerm)
-
-        if (newSearchTerm === "") {
-            setFilteredProducts([])
-        } else {
-            setFilteredProducts(shopProducts.filter(product =>
-                product.label.toLowerCase().includes(newSearchTerm.toLowerCase())
-            ))
+    // Query the API once typing pauses; abort stale requests so older responses can't win.
+    useEffect(() => {
+        const term = searchTerm.trim();
+        if (!term) {
+            setFilteredProducts([]);
+            setStatus("idle");
+            return;
         }
-    }
+
+        setStatus("loading");
+        const controller = new AbortController();
+        const timer = setTimeout(async () => {
+            try {
+                const page = await fetchProducts({ q: term, limit: MAX_RESULTS }, { signal: controller.signal });
+                setFilteredProducts(page.items);
+                setStatus("done");
+            } catch {
+                if (!controller.signal.aborted) setStatus("error");
+            }
+        }, SEARCH_DEBOUNCE_MS);
+
+        return () => {
+            clearTimeout(timer);
+            controller.abort();
+        };
+    }, [searchTerm]);
 
     useEffect(() => {
         if (listRef.current) {
             setListHeight(listRef.current.scrollHeight)
         }
-    }, [filteredProducts])
+    }, [filteredProducts, status])
 
     if (!isOpen) return null;
 
@@ -70,7 +90,7 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
                         autoFocus
                         type="text"
                         value={searchTerm}
-                        onChange={(e) => handleSearch(e)}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Type in to search.."
                         className="w-[430px] h-[32px] text-black bg-transparent outline-none"
                         aria-label="Search Products"
@@ -86,14 +106,22 @@ export default function SearchBar({ isOpen, onClose }: { isOpen: boolean, onClos
                             className="flex flex-col text-black border-t w-full overflow-y-auto scrollbar-hide"
                         >
                             <div ref={listRef}>
-                                {filteredProducts.length > 0 ? (
+                                {status === "loading" && filteredProducts.length === 0 ? (
+                                    <div className="flex items-center justify-center w-full py-2 text-sm text-[#7e7e7e]">
+                                        Searching…
+                                    </div>
+                                ) : status === "error" ? (
+                                    <div className="flex items-center justify-center w-full py-2 text-sm text-[#7e7e7e]">
+                                        Search is unavailable right now
+                                    </div>
+                                ) : filteredProducts.length > 0 ? (
                                     filteredProducts.map((product) => (
                                         <Link
                                             href={`/shop/${product.slug}`}
-                                            key={product.id}
+                                            key={product.slug}
                                             onClick={onClose}
                                             className="flex flex-col w-full text-sm hover:bg-[#f7f7f7] px-4 py-4">
-                                            <span>{product.label}</span>
+                                            <span>{product.name}</span>
                                             <span className="text-[#4a4a4a]">/shop/{product.slug}</span>
                                         </Link>
                                     ))) : (
