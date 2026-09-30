@@ -56,3 +56,7 @@ yarn dev
 ```
 
 On Windows, if port 3000 fails with `EACCES`, it is reserved by the OS: use `yarn dev -p 3500`.
+
+The frontend's API types (`ui/src/lib/api/schema.d.ts`) are generated from the backend's OpenAPI
+schema. After changing an API response, regenerate them with the backend running:
+`cd ui && yarn gen:api`.

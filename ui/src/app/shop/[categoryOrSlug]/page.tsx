@@ -1,51 +1,56 @@
-import { shopProducts } from "@/data/shopData"
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import FilteredPage from "@/components/shop/FilteredPage"
 import ProductPage from "@/components/shop/ProductPage"
-import { product } from "@/types/shop";
-import FilteredPage from "@/components/shop/FilteredPage";
+import {
+    getCategories,
+    getCategory,
+    getProduct,
+    getProductsByCategory,
+    getRelatedProducts,
+} from "@/lib/api/catalog"
+import { isNotFound } from "@/lib/api/client"
 
-type QueryResult =
-    | { type: 'category'; product: product[] }
-    | { type: 'product'; product: product }
-    | { type: 'notFound' }
+// Rendered per request: catalog data must be current, and builds must not depend on the API.
+export const dynamic = "force-dynamic"
 
-function getProductBySlug(slug: string): QueryResult {
-    const categoryProducts = shopProducts.filter(product => product.category.toLowerCase() === slug.toLocaleLowerCase());
+type Props = { params: { categoryOrSlug: string } }
 
-    if (categoryProducts.length > 0) {
-        return { type: 'category', product: categoryProducts }
-    }
-    const singleProduct = shopProducts.find(product => product.slug === slug);
-
-    if (singleProduct) {
-        return { type: 'product', product: singleProduct }
-    }
-    return { type: 'notFound' }
+// `/shop/<slug>` is either a category listing or a product page.
+async function findCategory(slug: string) {
+    const categories = await getCategories()
+    return categories.find((category) => category.slug === slug)
 }
 
-export async function generateStaticParams() {
-    return shopProducts.map((product) => ({
-        slug: product.slug,
-    }))
+async function getProductOrNotFound(slug: string) {
+    try {
+        return await getProduct(slug)
+    } catch (error) {
+        if (isNotFound(error)) notFound()
+        throw error
+    }
 }
 
-export default function HandleSlug({ params }: { params: { categoryOrSlug: string } }) {
-    const { categoryOrSlug } = params;
-    const result = getProductBySlug(categoryOrSlug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const category = await findCategory(params.categoryOrSlug)
+    if (category) return { title: `${category.name} - A17` }
 
-    switch (result.type) {
-        case 'category':
-            return <FilteredPage products={result.product} />;
-        case 'product':
-            return <ProductPage currentProduct={result.product} allProducts={shopProducts} />;
-        case 'notFound':
-            return (
-                <div className="flex flex-col items-center w-full min-w-[320px]">
-                    <div className="w-full max-w-8xl">
-                        <h1 className='text-[40px] text-black font-medium leading-tight py-32 text-center'>
-                            Page not found: {categoryOrSlug}
-                        </h1>
-                    </div>
-                </div>
-            );
+    const product = await getProductOrNotFound(params.categoryOrSlug)
+    return { title: `${product.name} - A17`, description: product.description }
+}
+
+export default async function CategoryOrProductPage({ params }: Props) {
+    const slug = params.categoryOrSlug
+
+    if (await findCategory(slug)) {
+        const [products, categories] = await Promise.all([getProductsByCategory(slug), getCategories()])
+        return <FilteredPage products={products} categories={categories} />
     }
+
+    const product = await getProductOrNotFound(slug)
+    const [category, related] = await Promise.all([
+        getCategory(product.category.slug),
+        getRelatedProducts(slug),
+    ])
+    return <ProductPage product={product} features={category.features} related={related} />
 }

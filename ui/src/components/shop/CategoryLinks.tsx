@@ -2,14 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { categories } from "@/data/shopData";
+import type { Category } from "@/lib/api/client";
 
-export default function CategoryLinks() {
-    const currentCategory = usePathname().split('/')[2];
+export default function CategoryLinks({ categories }: { categories: Category[] }) {
+    // "" on /shop (all products), otherwise the category slug from /shop/<slug>.
+    const currentCategory = usePathname().split('/')[2] ?? '';
+    const links = [{ name: 'All products', slug: '' }, ...categories];
 
     return (
         <div className="flex gap-2 md:gap-1 xl:gap-3 text-sm md:text-base overflow-x-auto scrollbar-hide">
-            {categories.map((category) => (
+            {links.map((category) => (
                 <Link
                     key={category.slug}
                     href={`/shop${category.slug ? `/${category.slug}` : ''}`}
