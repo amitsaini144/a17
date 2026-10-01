@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engin
 from sqlalchemy.pool import NullPool
 
 from app import models  # noqa: F401  (registers all models on Base.metadata)
+from app.core.config import get_settings
 from app.core.database import Base, get_db_session
 from app.core.timing import instrument_engine
 from app.main import app
@@ -15,6 +16,12 @@ from app.main import app
 TEST_DATABASE_URL = os.environ.get(
     "TEST_DATABASE_URL", "postgresql+asyncpg://a17:a17@localhost:5432/a17_test"
 )
+
+
+@pytest.fixture(autouse=True)
+def root_relative_asset_urls(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Expect `/images/...` URLs regardless of the developer's `.env` (which points at the CDN)."""
+    monkeypatch.setattr(get_settings(), "assets_base_url", "")
 
 
 @pytest.fixture(scope="session")
