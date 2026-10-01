@@ -19,8 +19,8 @@ class Settings(BaseSettings):
     database_url: PostgresDsn
     cors_origins: list[str] = []
 
-    # Public base URL for stored assets (CloudFront in production). Empty = root-relative
-    # URLs like `/images/...`, which the Next.js app serves from `ui/public` in local dev.
+    # Public base URL for stored assets: the CloudFront domain in front of the S3 bucket.
+    # Empty yields root-relative URLs like `/images/...` (used by the tests only).
     assets_base_url: str = ""
 
     @field_validator("database_url", mode="before")
