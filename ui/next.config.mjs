@@ -5,8 +5,7 @@ const apiUrl =
   process.env.API_URL ??
   (process.env.NODE_ENV === "development" ? "http://localhost:8000" : undefined);
 
-// CDN serving catalog images (CloudFront); must match the API's ASSETS_BASE_URL. Unset, the API
-// returns root-relative `/images/...` URLs, which need no allow-list.
+// CDN serving catalog images (CloudFront in front of S3); must match the API's ASSETS_BASE_URL.
 const assetsBaseUrl = process.env.ASSETS_BASE_URL ? new URL(process.env.ASSETS_BASE_URL) : undefined;
 
 /** @type {import('next').NextConfig} */
