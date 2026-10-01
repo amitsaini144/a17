@@ -1,5 +1,5 @@
 import Image from "next/image"
-import macbook from "../../../public/images/monitor/macbook.png"
+import macbook from "@/assets/images/monitor/macbook.png"
 import Link from "next/link"
 
 export default function Displays() {

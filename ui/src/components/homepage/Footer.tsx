@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "./Icons";
-import map from "../../../public/images/map.png";
+import map from "@/assets/images/map.png";
 import { MapPin } from "lucide-react";
 
 export default function Footer() {
