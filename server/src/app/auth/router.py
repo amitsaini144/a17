@@ -7,6 +7,7 @@ from app.auth.cookies import REFRESH_COOKIE, clear_session_cookies, set_session_
 from app.auth.dependencies import AuthServiceDep, CurrentUser
 from app.auth.schemas import LoginRequest, RegisterRequest, UserRead
 from app.core.config import get_settings
+from app.core.exceptions import AuthenticationError, error_response
 from app.core.rate_limit import client_ip, enforce
 
 # Per-account limits are what stop password guessing (they hold however many IPs an attacker
@@ -47,7 +48,14 @@ async def refresh(
     request: Request, service: AuthServiceDep, refresh_token: RefreshCookie = None
 ) -> Response:
     await enforce(REFRESH_PER_IP, "refresh", client_ip(request))
-    tokens = await service.refresh(refresh_token)
+    try:
+        tokens = await service.refresh(refresh_token)
+    except AuthenticationError as exc:
+        # The session is over: drop its cookies too, or the UI's route guard (which only sees
+        # the session hint cookie) would keep treating the browser as logged in.
+        error = error_response(exc)
+        clear_session_cookies(error, get_settings())
+        return error
     response = Response(status_code=status.HTTP_204_NO_CONTENT)
     set_session_cookies(response, tokens, get_settings())
     return response

@@ -39,11 +39,16 @@ async def test_register_creates_account_and_logs_in(client: AsyncClient) -> None
 async def test_session_cookies_are_httponly_secure_and_lax(client: AsyncClient) -> None:
     cookies = set_cookies(await register(client))
 
-    for name in ("access_token", "refresh_token"):
-        assert cookies[name]["httponly"] is True
+    for name in ("access_token", "refresh_token", "session"):
         assert cookies[name]["secure"] is True
         assert cookies[name]["samesite"] == "lax"
+    assert cookies["access_token"]["httponly"] is True
+    assert cookies["refresh_token"]["httponly"] is True
+    # The hint holds no secret and is meant to be read by page scripts.
+    assert not cookies["session"]["httponly"]
     assert cookies["access_token"]["path"] == "/"
+    assert cookies["session"]["path"] == "/"
+    assert cookies["session"].value == "1"
     # The refresh token is only ever sent to the auth endpoints.
     assert cookies["refresh_token"]["path"] == "/api/v1/auth"
 
@@ -142,6 +147,18 @@ async def test_refresh_without_cookie_is_rejected(client: AsyncClient) -> None:
     assert response.status_code == 401
 
 
+async def test_failed_refresh_clears_the_session_cookies(client: AsyncClient) -> None:
+    await register(client)
+    client.cookies.clear()
+    client.cookies.set("refresh_token", "revoked-or-made-up", domain="test", path="/api/v1/auth")
+
+    response = await client.post("/api/v1/auth/refresh")
+
+    assert response.status_code == 401
+    assert response.json()["code"] == "not_authenticated"
+    assert set_cookies(response)["session"]["max-age"] == "0"
+
+
 async def test_logout_clears_cookies_and_ends_the_session(client: AsyncClient) -> None:
     refresh_token = set_cookies(await register(client))["refresh_token"].value
 
@@ -151,6 +168,7 @@ async def test_logout_clears_cookies_and_ends_the_session(client: AsyncClient) -
     cleared = set_cookies(response)
     assert cleared["access_token"]["max-age"] == "0"
     assert cleared["refresh_token"]["max-age"] == "0"
+    assert cleared["session"]["max-age"] == "0"
     # Even a saved copy of the refresh token no longer works.
     client.cookies.set("refresh_token", refresh_token, domain="test", path="/api/v1/auth")
     assert (await client.post("/api/v1/auth/refresh")).status_code == 401
