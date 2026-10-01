@@ -1,8 +1,8 @@
 import { TruckIcon, CreditCardIcon, Undo2Icon } from "lucide-react"
 import { smallCard, largeCard } from "@/types/about";
-import exculsive from "../../public/images/exclusive.png"
-import enduring from "../../public/images/enduring.png"
-import ethical from "../../public/images/ethical.png"
+import exculsive from "@/assets/images/exclusive.png"
+import enduring from "@/assets/images/enduring.png"
+import ethical from "@/assets/images/ethical.png"
 
 
 export const smallCardInfo: smallCard[] = [

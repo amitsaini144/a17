@@ -1,7 +1,7 @@
 import { article } from "@/types/blog";
-import VR from "../../public/images/VR.png"
-import pc from "../../public/images/pc.png"
-import typing from "../../public/images/typing.png"
+import VR from "@/assets/images/VR.png"
+import pc from "@/assets/images/pc.png"
+import typing from "@/assets/images/typing.png"
 
 export const articles: article[] = [
     {
