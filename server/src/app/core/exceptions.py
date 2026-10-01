@@ -47,13 +47,18 @@ class RateLimitedError(AppError):
         )
 
 
-async def _handle_app_error(_: Request, exc: Exception) -> JSONResponse:
-    assert isinstance(exc, AppError)  # noqa: S101 - narrowed by registration below
+def error_response(exc: AppError) -> JSONResponse:
+    """The one error body format. Use directly only when a route must add to the response."""
     return JSONResponse(
         status_code=exc.status_code,
         content={"detail": exc.message, "code": exc.code},
         headers=exc.headers,
     )
+
+
+async def _handle_app_error(_: Request, exc: Exception) -> JSONResponse:
+    assert isinstance(exc, AppError)  # noqa: S101 - narrowed by registration below
+    return error_response(exc)
 
 
 def register_exception_handlers(app: FastAPI) -> None:
