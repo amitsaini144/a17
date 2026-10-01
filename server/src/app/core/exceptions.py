@@ -8,9 +8,10 @@ class AppError(Exception):
     status_code: int = 500
     code: str = "internal_error"
 
-    def __init__(self, message: str) -> None:
+    def __init__(self, message: str, *, headers: dict[str, str] | None = None) -> None:
         super().__init__(message)
         self.message = message
+        self.headers = headers
 
 
 class NotFoundError(AppError):
@@ -23,10 +24,35 @@ class DatabaseUnavailableError(AppError):
     code = "database_unavailable"
 
 
+class AuthenticationError(AppError):
+    """Missing, invalid or expired credentials."""
+
+    status_code = 401
+    code = "not_authenticated"
+
+
+class ConflictError(AppError):
+    status_code = 409
+    code = "conflict"
+
+
+class RateLimitedError(AppError):
+    status_code = 429
+    code = "rate_limited"
+
+    def __init__(self, retry_after_seconds: int) -> None:
+        super().__init__(
+            "Too many requests, please try again later",
+            headers={"Retry-After": str(retry_after_seconds)},
+        )
+
+
 async def _handle_app_error(_: Request, exc: Exception) -> JSONResponse:
     assert isinstance(exc, AppError)  # noqa: S101 - narrowed by registration below
     return JSONResponse(
-        status_code=exc.status_code, content={"detail": exc.message, "code": exc.code}
+        status_code=exc.status_code,
+        content={"detail": exc.message, "code": exc.code},
+        headers=exc.headers,
     )
 
 

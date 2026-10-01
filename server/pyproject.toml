@@ -6,9 +6,12 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "alembic>=1.20.0",
+    "argon2-cffi>=25.1.0",
     "asyncpg>=0.31.0",
     "fastapi[standard]>=0.141.1",
+    "limits>=5.8.0",
     "pydantic-settings>=2.15.0",
+    "pyjwt>=2.15.1",
     "sqlalchemy[asyncio]>=2.1.0",
     "structlog>=26.1.0",
 ]
@@ -30,7 +33,7 @@ select = ["E", "W", "F", "I", "B", "UP", "N", "S", "ASYNC", "C4", "SIM", "RUF", 
 ignore = ["PLR0913"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["S101", "PLR2004"]
+"tests/**" = ["S101", "S105", "S106", "PLR2004"]
 "alembic/**" = ["N999"]
 
 [tool.mypy]
