@@ -1,10 +1,10 @@
 "use client"
 
 import { Loader2 } from "lucide-react"
-import Link from "next/link"
 import { useState } from "react"
 import { useAuth } from "@/components/auth/AuthProvider"
 import RequireAuth from "@/components/auth/RequireAuth"
+import OrderHistory from "@/components/orders/OrderHistory"
 
 export default function AccountOverview() {
     const { logout } = useAuth()
@@ -48,13 +48,10 @@ export default function AccountOverview() {
                         <div role="alert">
                             {error && <p className="text-sm text-red-700 bg-red-50 rounded-xl px-4 py-3">{error}</p>}
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <section className="flex flex-col gap-4">
                             <h2 className="text-2xl text-black">Orders</h2>
-                            <p className="text-[#4a4a4a]">
-                                You haven&apos;t placed any orders yet.{" "}
-                                <Link href="/shop" className="text-black underline underline-offset-4">Browse the shop</Link>
-                            </p>
-                        </div>
+                            <OrderHistory />
+                        </section>
                     </div>
                 </div>
             )}
