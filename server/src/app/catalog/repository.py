@@ -56,6 +56,12 @@ class CatalogRepository:
         )
         return await self._session.scalar(stmt)
 
+    async def get_active_products_by_slugs(self, slugs: Sequence[str]) -> Sequence[Product]:
+        if not slugs:
+            return []
+        result = await self._session.scalars(self._active_products().where(Product.slug.in_(slugs)))
+        return result.all()
+
     async def list_related_products(self, product: Product, limit: int) -> Sequence[Product]:
         """Same-category products first, topped up with other categories."""
         same_category_first = case((Product.category_id == product.category_id, 0), else_=1)

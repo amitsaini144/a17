@@ -35,6 +35,15 @@ class Settings(BaseSettings):
     # Browsers treat http://localhost as secure, so Secure cookies work in local dev too.
     cookie_secure: bool = True
 
+    # Payments (Stripe Checkout, test mode). Optional: without them the API runs, and checkout
+    # answers 503 "payments not configured".
+    stripe_secret_key: SecretStr | None = None
+    stripe_webhook_secret: SecretStr | None = None
+    # The UI's public origin, where Stripe sends shoppers back after paying or cancelling.
+    public_site_url: str = ""
+    # How long a Stripe Checkout page stays valid (Stripe allows 30 minutes to 24 hours).
+    checkout_session_ttl_minutes: int = 60
+
     # `limits` storage URI. In-memory suits a single instance; use `async+redis://...` once the
     # API runs more than one, so all instances share the counters.
     rate_limit_storage_uri: str = "async+memory://"
