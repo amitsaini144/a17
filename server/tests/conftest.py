@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engin
 from sqlalchemy.pool import NullPool
 
 from app import models  # noqa: F401  (registers all models on Base.metadata)
+from app.core import rate_limit
 from app.core.config import get_settings
 from app.core.database import Base, get_db_session
 from app.core.timing import instrument_engine
@@ -22,6 +23,13 @@ TEST_DATABASE_URL = os.environ.get(
 def root_relative_asset_urls(monkeypatch: pytest.MonkeyPatch) -> None:
     """Expect `/images/...` URLs regardless of the developer's `.env` (which points at the CDN)."""
     monkeypatch.setattr(get_settings(), "assets_base_url", "")
+
+
+@pytest.fixture(autouse=True)
+async def fresh_rate_limits() -> AsyncIterator[None]:
+    """Each test starts with empty rate-limit counters."""
+    await rate_limit.reset()
+    yield
 
 
 @pytest.fixture(scope="session")
@@ -64,7 +72,8 @@ async def client(db_session: AsyncSession) -> AsyncIterator[AsyncClient]:
 
     app.dependency_overrides[get_db_session] = override_get_db_session
     try:
-        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
+        # https, so the client sends the Secure session cookies back like a browser would.
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="https://test") as ac:
             yield ac
     finally:
         app.dependency_overrides.clear()

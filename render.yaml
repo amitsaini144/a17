@@ -21,3 +21,7 @@ services:
       # Neon connection string, pasted as-is. Secret: set in the dashboard, never committed.
       - key: DATABASE_URL
         sync: false
+      # Signs session tokens. Render generates a random value once; it never leaves Render.
+      # Rotating it only invalidates current access tokens; browsers then refresh to new ones.
+      - key: JWT_SECRET
+        generateValue: true
