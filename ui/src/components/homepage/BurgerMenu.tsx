@@ -6,6 +6,7 @@ import { X, AlignJustify } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/data/homeData";
 import AccountNavLink from "@/components/auth/AccountNavLink";
+import CartNavLink from "@/components/cart/CartNavLink";
 
 export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetStateAction<boolean>> }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -26,16 +27,19 @@ export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetS
             <div className="flex item-center gap-4 text-2xl text-black font-bold z-50">
                 <Link href="/">A17</Link>
             </div>
-            <motion.button
-                onClick={toggle}
-                className="md:hidden z-50"
-            >
-                {isOpen ? (
-                    <X size={32} color="black" />
-                ) : (
-                    <AlignJustify size={32} color="black" />
-                )}
-            </motion.button>
+            <div className="flex items-center gap-6 z-50">
+                <CartNavLink className="text-black" />
+                <motion.button
+                    onClick={toggle}
+                    className="md:hidden"
+                >
+                    {isOpen ? (
+                        <X size={32} color="black" />
+                    ) : (
+                        <AlignJustify size={32} color="black" />
+                    )}
+                </motion.button>
+            </div>
             <AnimatePresence>
                 {isOpen && (
                     <motion.div

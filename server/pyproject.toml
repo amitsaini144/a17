@@ -13,6 +13,7 @@ dependencies = [
     "pydantic-settings>=2.15.0",
     "pyjwt>=2.15.1",
     "sqlalchemy[asyncio]>=2.1.0",
+    "stripe>=16.0.0",
     "structlog>=26.1.0",
 ]
 

@@ -31,9 +31,28 @@ class AuthenticationError(AppError):
     code = "not_authenticated"
 
 
+class InvalidRequestError(AppError):
+    """Well-formed input that breaks a business rule."""
+
+    status_code = 422
+    code = "invalid_request"
+
+
 class ConflictError(AppError):
     status_code = 409
     code = "conflict"
+
+
+class BadRequestError(AppError):
+    status_code = 400
+    code = "bad_request"
+
+
+class ServiceUnavailableError(AppError):
+    """A dependency (e.g. the payment provider) is down or not configured."""
+
+    status_code = 503
+    code = "service_unavailable"
 
 
 class RateLimitedError(AppError):

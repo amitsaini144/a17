@@ -11,6 +11,7 @@ import RelatedCard from "./RelatedCard"
 import { FeatureCard } from "./FeatureCard"
 import CoverImage from "./CoverImage"
 import ProductInfo from "./ProductInfo"
+import AddToCartButtons from "@/components/cart/AddToCartButtons"
 
 interface ProductPageProps {
     product: ProductDetail,
@@ -64,9 +65,7 @@ export default function ProductPage({ product, features, related }: ProductPageP
                             </div>
                             <h2 className="text-2xl md:text-[28px] xl:text-[32px] text-black w-fit">{formatPrice(product.price_cents, product.currency)}</h2>
                             <div className="flex flex-col w-full gap-4 items-center">
-                                <Link href='' className="text-white bg-black text-center px-9 py-[18px] rounded-full w-full md:text-[18px]">
-                                    Buy now
-                                </Link>
+                                <AddToCartButtons slug={product.slug} />
                                 <div className="flex flex-col gap-1 text-center text-[#7f7f7f] text-[12px] md:text-sm w-full">
                                     <p>Estimate delivery times: 3-6 days (International)</p>
                                     <p>Return within 45 days of purchase. Duties & taxes are non-refundable.</p>

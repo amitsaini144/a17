@@ -25,3 +25,11 @@ services:
       # Rotating it only invalidates current access tokens; browsers then refresh to new ones.
       - key: JWT_SECRET
         generateValue: true
+      # Stripe test-mode keys and the webhook endpoint's signing secret. Secrets: set in the
+      # dashboard. PUBLIC_SITE_URL is the UI origin Stripe sends shoppers back to.
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: PUBLIC_SITE_URL
+        sync: false

@@ -51,13 +51,13 @@ class CatalogService:
             offset=offset,
         )
         return Page(
-            items=[_product_summary(p) for p in products], total=total, limit=limit, offset=offset
+            items=[product_summary(p) for p in products], total=total, limit=limit, offset=offset
         )
 
     async def get_product(self, slug: str) -> ProductDetail:
         product = await self._get_product_or_raise(slug)
         return ProductDetail(
-            **_product_summary(product).model_dump(exclude={"category"}),
+            **product_summary(product).model_dump(exclude={"category"}),
             description=product.description,
             gallery_urls=[public_url(image.image_key) for image in product.images],
             category=_category_read(product.category),
@@ -66,7 +66,7 @@ class CatalogService:
     async def list_related_products(self, slug: str, limit: int) -> list[ProductSummary]:
         product = await self._get_product_or_raise(slug)
         related = await self._repository.list_related_products(product, limit)
-        return [_product_summary(p) for p in related]
+        return [product_summary(p) for p in related]
 
     async def _get_product_or_raise(self, slug: str) -> Product:
         product = await self._repository.get_product_by_slug(slug)
@@ -83,7 +83,8 @@ def _category_read(category: Category) -> CategoryRead:
     )
 
 
-def _product_summary(product: Product) -> ProductSummary:
+def product_summary(product: Product) -> ProductSummary:
+    """Public view of a product; also used by the cart, so both show the same data."""
     return ProductSummary(
         slug=product.slug,
         name=product.name,
