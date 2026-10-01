@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/homepage/Navbar";
 import Footer from "@/components/homepage/Footer";
 import SubscribeCard from "@/components/homepage/SubscribeCard";
+import AuthProvider from "@/components/auth/AuthProvider";
 
 const satoshi = localFont({
   display: 'swap',
@@ -26,10 +27,12 @@ export default function RootLayout({
       <body
         className={`${satoshi.variable} font-satoshi antialiased bg-white`}
       >
-        <Navbar />
-        {children}
-        <SubscribeCard />
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <SubscribeCard />
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

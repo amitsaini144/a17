@@ -3,6 +3,7 @@ import Link from "next/link"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { navItems } from "@/data/homeData";
 import BurgerMenu from "./BurgerMenu";
+import AccountNavLink from "@/components/auth/AccountNavLink";
 import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
@@ -48,6 +49,7 @@ export default function Navbar() {
                                 <Link href={item.href}>{item.label}</Link>
                             </div>
                         ))}
+                        <AccountNavLink className="text-black" />
                     </div>
                 </div>
 

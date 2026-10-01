@@ -21,10 +21,36 @@ export class ApiError extends Error {
     constructor(
         readonly status: number,
         message: string,
+        /** Machine-readable code from the API's error body, e.g. "rate_limited". */
+        readonly code?: string,
+        /** Seconds until a rate-limited request may be retried (`Retry-After`). */
+        readonly retryAfter?: number,
     ) {
         super(message);
         this.name = "ApiError";
     }
+}
+
+type ErrorBody = { detail?: unknown; code?: unknown };
+
+/** Build an ApiError from a failed response, keeping the API's message when there is one. */
+export async function toApiError(response: Response, fallback: string): Promise<ApiError> {
+    const retryAfter = Number(response.headers.get("Retry-After")) || undefined;
+    let body: ErrorBody | undefined;
+    try {
+        body = (await response.json()) as ErrorBody;
+    } catch {
+        // Not JSON (e.g. a proxy error page): fall back to the generic message.
+    }
+    const code = typeof body?.code === "string" ? body.code : undefined;
+    if (typeof body?.detail === "string") {
+        return new ApiError(response.status, body.detail, code, retryAfter);
+    }
+    // FastAPI validation errors: `detail` is a list of { msg } entries.
+    if (Array.isArray(body?.detail) && body.detail.length > 0) {
+        return new ApiError(response.status, "Please check the highlighted fields", "validation_error");
+    }
+    return new ApiError(response.status, fallback, code, retryAfter);
 }
 
 export function isNotFound(error: unknown): boolean {
@@ -59,7 +85,7 @@ export async function apiGet<T>(path: string, init?: { signal?: AbortSignal }): 
         signal: init?.signal,
     });
     if (!response.ok) {
-        throw new ApiError(response.status, `GET ${path} failed with status ${response.status}`);
+        throw await toApiError(response, `GET ${path} failed with status ${response.status}`);
     }
     return (await response.json()) as T;
 }

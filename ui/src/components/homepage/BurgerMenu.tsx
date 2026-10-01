@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { X, AlignJustify } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/data/homeData";
+import AccountNavLink from "@/components/auth/AccountNavLink";
 
 export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetStateAction<boolean>> }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -47,7 +48,7 @@ export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetS
                         <motion.div
                             className="flex flex-col gap-4 pt-24 px-4 w-full font-normal text-lg text-[#4a4a4a]"
                         >
-                            {navItems.map((item, index, array) => (
+                            {navItems.map((item) => (
                                 <div key={item.href} className="relative py-1">
                                     <Link
                                         href={item.href}
@@ -55,11 +56,12 @@ export default function BurgerMenu({ setMenuOpen }: { setMenuOpen: Dispatch<SetS
                                     >
                                         {item.label}
                                     </Link>
-                                    {index < array.length - 1 && (
-                                        <div className="absolute bottom-0 left-3 right-3 h-px bg-gray-200" />
-                                    )}
+                                    <div className="absolute bottom-0 left-3 right-3 h-px bg-gray-200" />
                                 </div>
                             ))}
+                            <div className="py-1">
+                                <AccountNavLink className="p-3 w-fit text-black" />
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}
